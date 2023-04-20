@@ -1,3 +1,33 @@
+<?php 
+    if(isset($_GET['username'])) {
+        header("Location: ./home");
+        exit();
+    }
+    
+    if(isset($_POST['submit'])) {
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+        
+        $conn = mysqli_connect('localhost', 'root', '', 'nongsanstore');
+        if (!$conn) {
+            die("Connection failed: " . mysqli_connect_error());
+        }
+        $sql = "SELECT * FROM tbl_user WHERE username ='$username' AND Password ='$password'";
+        $result = mysqli_query($conn, $sql);
+        $followingdata = $result->fetch_assoc();
+        $rowcount=mysqli_num_rows($result);
+        if($rowcount == 1) {
+            $_SESSION['username'] = $_POST['username'];
+            $_SESSION['role'] = $followingdata['role'];
+            header("Location: ./home");
+            exit();
+        } else {
+            $error = "Vui lòng kiểm tra lại thông tin !";
+        }
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,15 +61,15 @@
                             <div class="mb-4">
                                 <h3>Log in to <strong>NÔNG SẢN SẠCH</strong></h3>
                             </div>
-                            <form action="#" method="post">
+                            <form action="" method="post">
                                 <div class="form-group first">
                                     <label for="username">Username</label>
-                                    <input type="text" class="form-control" id="username">
+                                    <input type="text" class="form-control" id="username" name="username">
 
                                 </div>
                                 <div class="form-group last mb-4">
                                     <label for="password">Password</label>
-                                    <input type="password" class="form-control" id="password">
+                                    <input type="password" class="form-control" id="password" name="password">
 
                                 </div>
 
@@ -51,9 +81,10 @@
                                     <span class="ml-auto"><a href="#" class="forgot-pass">Forgot Password</a></span>
                                 </div>
 
-                                <input type="submit" value="Log in" class="btn text-white btn-block btn-primary">
+                                <input type="submit" name="submit" value="Login" class="btn text-white btn-block btn-primary">
                                 <a style="text-decoration: none;" href="./Home" class="btn text-white btn-block btn-primary">Back</a>
                                 <span class="d-block text-left my-4 text-muted"> or sign in with</span>
+                                <?php if(isset($error))  echo "<p>$error</p>"; ?>
 
                                 <div class="social-login">
                                     <a href="#" class="facebook">
