@@ -109,20 +109,43 @@
 								<li></li><li></li><li></li>	<li></li><li></li><li></li>
 								<li><a class="shopping-cart" href="./cart"><i class="fas fa-shopping-cart"></i></a> </li>
 								<li><a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a></li>										
-								<li><a class="mobile-hide search-bar-icon" href="#"><i class="fa-solid fa-user"></i></a>
+								<!-- <li><a class="mobile-hide search-bar-icon" href="#"><i class="fa-solid fa-user"></i></a>
 									<ul class="sub-menu">
 										<?php 
 											if(isset($_SESSION['username'])) {
 												echo "<li>Xin chào". " ". $_SESSION['username'] . " role: ". $_SESSION['role'] ."</li>";
 												echo "<li><a href='./controller/Logout.php'>Đăng xuất</a></li>";
 											} else {
-												echo "<li><a href='./login'>Đăng nhập</a></li>";
-												echo "<li><a href='./signup'>Đăng ký</a></li>";
+													echo "<li><a href='./login'>Đăng nhập</a></li>";
+													echo "<li><a href='./signup'>Đăng ký</a></li>";
 											}
 										?>
 									</ul>					
-								</li>
-								
+								</li> -->
+								<?php 
+									if(isset($_SESSION['username'])) {
+										echo "
+										<li>
+											<a class='mobile-hide search-bar-icon' href='#' style='text-decoration: none'>
+												<span>{$_SESSION['username']}</span>
+												<i class='fa fa-user-circle'></i>
+											</a>
+											<ul class='sub-menu'>
+												<li><a href='./controller/Logout.php'>Đăng xuất</a></li>
+											</ul>
+										</li>
+										";
+									} else {
+										echo "
+										<li><a class='mobile-hide search-bar-icon' href='#'><i class='fa-solid fa-user'></i></a>
+											<ul class='sub-menu'>
+												<li><a href='./login' style='text-decoration: none'>Đăng nhập</a></li>
+												<li><a href='./signup' style='text-decoration: none'>Đăng ký</a></li>
+											</ul>					
+										</li> 
+										";
+									}
+								?>
 							</ul>
 						</nav>
 						<a class="mobile-show search-bar-icon" href="#"><i class="fas fa-search"></i></a>

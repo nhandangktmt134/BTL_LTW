@@ -1,4 +1,13 @@
+<?php 
+    require_once("controller/Usercontroller.php");
+    $userC = new user();
+    $userC->signup();
 
+    $error = isset($_SESSION['error']) ? $_SESSION['error'] : "";
+    $msg = isset($_SESSION['msg']) ? $_SESSION['msg'] : "";
+
+   
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +26,7 @@
 </head>
 <body>
 <section class="h-100 bg-dark">
-<form action="/bookstore/user/signup" method="POST" enctype="multipart/form-data" >
+<form action="" method="post" enctype="multipart/form-data">
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col">
@@ -33,8 +42,8 @@
                 <h3 class="mb-5 text-uppercase">Đăng ký tài khoản</h3>
 
                 <div id="message">
-                    <p style='color: green'> <?php echo $data['msg'] ?? "" ?> </p> 
-                    <p style='color: red'>   <?php echo $data['err'] ?? "" ?> </p>
+                    <p style='color: green'> <?php echo $msg ?? "" ?> </p> 
+                    <p style='color: red'>   <?php echo $error ?? "" ?> </p>
                 </div>
 
                 <div class="row">
@@ -98,7 +107,7 @@
                 <div class="d-flex justify-content-end pt-3">
 				<a style="text-decoration: none;" href="./Home" class="btn text-white btn-block btn-primary">Quay lại</a>
                   <button type="reset" class="btn btn-light btn-lg">Đặt lại</button>
-                  <button type="submit" class="btn btn-primary btn-lg ms-2" name="signup">Xác nhận đăng kí</button>
+                  <input type="submit" name="submit" value="Xác nhận đăng ký" class="btn text-white btn-block btn-primary">
                 </div>
             </div>
             </div>

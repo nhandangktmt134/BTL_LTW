@@ -1,12 +1,21 @@
 <?php
+include_once("./model/user.php");
 class user extends Controller {
+    public $userModelConst;
+    public $functionCore;
+
+    public function __construct() {
+        $this->userModelConst = new UserModel();
+        $this->functionCore = new Controller();
+    }
     function login()
     {
         $username = "";
         $password = "";
         $success = false;
         $msg1 = "";
-        if (isset($_POST['login_button'])) {
+        if (isset($_POST['submit'])) {
+           
             if (isset($_POST['username'])) {
                 $username = $_POST['username'];
             }
@@ -15,42 +24,50 @@ class user extends Controller {
             }
             if ($username == "" || $password == "") {
                 $msg1 = "Tên đăng nhập hoặc mật khẩu không được để trống!";
-                $_SESSION['loginmessage'] = $msg1;
-                header('Location: /bookstore/home');
+                $_SESSION['error'] = $msg1;
             } else {
-                $login = $this->model("UserModel");
-                $success = $login->login($username, $password);
-                if ($success == true) {
-                    $msg1 = "success";
-                    $_SESSION['loginmessage'] = $msg1;
-                    header('Location: /bookstore/home');
-                    die;
-                } else {
+                $user = $this->userModelConst->getuserinfo($username, $password);
+                print_r($user);
+                if ($user == false) {
                     $msg1 = "Wrong username or password!";
-                    $_SESSION['loginmessage'] = $msg1;
-                    header('Location: /bookstore/home');
-                    die;
+                    $_SESSION['error'] = $msg1;
+                    // exit();
+                } else {
+                    $_SESSION['username'] =$user['username'];
+                    $_SESSION['email'] = $user['email'];
+                    $_SESSION['role'] = $user['role'];
+                    $_SESSION['user_id'] = $user['user_id'];
+                    header("Location: ./home");
+                    // exit();
                 }
             }
         } else {
-            $_SESSION['loginmessage'] = $msg1;
-            header('Location: /bookstore/home');
+            $_SESSION['error'] = $msg1;
+            // header('Location: ./login');
         }
     }
 
     function signout() {
         session_unset();
-        //session_destroy();
-        $_SESSION['loginmessage'] = "signout";
-        header("location: /bookstore/home");
+        $_SESSION = array();
+        session_destroy();
+        header("location: ../home");
+        exit();
     }
 
     function signup() {
-        if (isset($_POST['signup'])) {
-            $firstname = ""; $lastname = ""; $email = "";
-            $username = ""; $password = ""; $retypePass = "";
-            $address = ""; $phone = ""; $img = "";
-            $role = 0; $msg = ""; $success = false;
+        if (isset($_POST['submit'])) {
+            $firstname = ""; $lastname = "";
+             $email = "";
+            $username = ""; $password = ""; 
+            $retypePass = "";
+            $address = "";
+             $phone = ""; 
+             $img = "";
+            $role = 0; 
+            $msg = ""; 
+            $success = false;
+
             if (isset($_POST['firstname'])) $firstname = $_POST['firstname'];
             if (isset($_POST['lastname'])) $lastname = $_POST['lastname'];
             if (isset($_POST['email'])) $email = $_POST['email'];
@@ -63,26 +80,26 @@ class user extends Controller {
 
             if ($username == "" || $password == "" || $firstname == "" || $lastname == "" || $address == "" || $email == "" || $phone == "" || $retypePass == "" || $address =="") {
                 $msg = "Hãy điền đủ thông tin !";
+                $_SESSION['error'] = $msg;
             }
             else if ( $password != $retypePass ) {
                 $msg = "Mật khẩu không giống nhau !";
+                $_SESSION['error'] = $msg;
             } else {
-                $img = $this->upload_file_user($username, $_FILES);
+                $img =  $this->functionCore->upload_file_user($username, $_FILES);
                 $password = password_hash($password, PASSWORD_DEFAULT);
-
-                $signup = $this->model("UserModel");                                
-                $success = $signup->insertUser($role, $username, $firstname, $lastname, $email, $phone, $address, $img, $password);
+                $success = $this->userModelConst->insertuser($role, $username, $firstname, $lastname, $email, $phone, $address, $img, $password);
 
                 if ($success == true) {
-                    $msg = "Đăng kí thành công ! ";
-                    $this->view("signup", ["msg" => $msg,]);
-                    die;
+                    $_SESSION['msg'] = "Đăng kí thành công ! ";
+                    
                 }
-                $this->view("signup", ["err" => "Tên tài khoản đã được sử dụng!",]);
+                // $this->view("signup", ["err" => "Tên tài khoản đã được sử dụng!",]);
+                $_SESSION['error'] = "Tên tài khoản đã được sử dụng!";
             }
-            $this->view("signup", ["msg" => $msg,]);
+            // $this->view("signup", ["msg" => $msg,]);
         } else {
-            $this->view("signup", []);
+            // $this->view("signup", []);
         }
     }
 

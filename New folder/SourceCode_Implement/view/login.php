@@ -1,31 +1,10 @@
 <?php 
-    if(isset($_GET['username'])) {
-        header("Location: ./home");
-        exit();
-    }
-    
-    if(isset($_POST['submit'])) {
-        $username = $_POST['username'];
-        $password = $_POST['password'];
-        
-        $conn = mysqli_connect('localhost', 'root', '', 'nongsanstore');
-        if (!$conn) {
-            die("Connection failed: " . mysqli_connect_error());
-        }
-        $sql = "SELECT * FROM tbl_user WHERE username ='$username' AND Password ='$password'";
-        $result = mysqli_query($conn, $sql);
-        $followingdata = $result->fetch_assoc();
-        $rowcount=mysqli_num_rows($result);
-        if($rowcount == 1) {
-            $_SESSION['username'] = $_POST['username'];
-            $_SESSION['role'] = $followingdata['role'];
-            header("Location: ./home");
-            exit();
-        } else {
-            $error = "Vui lòng kiểm tra lại thông tin !";
-        }
-    }
+    require_once("controller/Usercontroller.php");
+    $userC = new user();
+    $userC->login();
 
+    $error = isset($_SESSION['error']) ? $_SESSION['error'] : "";
+   
 ?>
 
 <!DOCTYPE html>
@@ -72,6 +51,7 @@
                                     <input type="password" class="form-control" id="password" name="password">
 
                                 </div>
+                                <?php if(isset($error))  echo "<p style='color: red'>$error</p>"; ?>
 
                                 <div class="d-flex mb-5 align-items-center">
                                     <label class="control control--checkbox mb-0"><span class="caption">Remember me</span>
@@ -84,7 +64,6 @@
                                 <input type="submit" name="submit" value="Login" class="btn text-white btn-block btn-primary">
                                 <a style="text-decoration: none;" href="./Home" class="btn text-white btn-block btn-primary">Back</a>
                                 <span class="d-block text-left my-4 text-muted"> or sign in with</span>
-                                <?php if(isset($error))  echo "<p>$error</p>"; ?>
 
                                 <div class="social-login">
                                     <a href="#" class="facebook">
