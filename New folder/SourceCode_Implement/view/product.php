@@ -36,7 +36,7 @@
                 <h3><?php  echo $row['sanpham_name']?>    </h3>
                 <p class="product-price"><span><?php  echo $row['sanpham_gia']?>VNd/Kg</span> </p>
                 <p> <?php  echo $row['sanpham_chitiet']?><p>
-                <a href="./cart" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+                <a href="<?php if(isset($_SESSION['username'])) {echo "./cart";} else {echo "./login";} ?>" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
         </div>
     </div>
     <?php endforeach; ?>      
