@@ -1,3 +1,12 @@
+<?php
+    $conn = mysqli_connect('localhost', 'root', '', 'nongsanstore');
+    if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
+    $sql = "SELECT * FROM tbl_new";
+    $result_news = mysqli_query($conn, $sql);
+    mysqli_close($conn);
+?>
 <!DOCTYPE html>
 <html lang="vn">
 <head>
@@ -73,14 +82,19 @@
 										<li><a href="cart.html">Cart</a></li>
 										<li><a href="checkout.html">Check Out</a></li>
 										<li><a href="./contact">Contact</a></li>
-										<li><a href="news.html">News</a></li>
+										<li><a href="./news">News</a></li>
 										<li><a href="./shop">Shop</a></li>
 									</ul>
 								</li>
-								<li><a href="news.html">News</a>
+								<li><a href="./news">News</a>
 									<ul class="sub-menu">
-										<li><a href="news.html">News</a></li>
-										<li><a href="single-news.html">Single News</a></li>
+										<?php foreach ($result_news as $row): ?> 
+											<li><a href="./news?new=<?php echo $row['name'];?>">
+											<?php echo $row['name'];?>
+											</a></li>
+										<?php endforeach; ?>  
+										<!-- <li><a href="./news">News</a></li>
+										<li><a href="single-news.html">Single News</a></li> -->
 									</ul>
 								</li>
 								<li><a href="./contact">Contact</a></li>
