@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 19, 2023 at 04:32 PM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.0.25
+-- Generation Time: Apr 20, 2023 at 11:37 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -84,6 +84,31 @@ INSERT INTO `tbl_danhmuc` (`id_danhmuc`, `name_danhmuc`, `uutien`, `hienthi`) VA
 (2, 'Trái cây', 0, 1),
 (3, 'Rau củ', 0, 1),
 (4, 'Nấm các loại', 0, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_new`
+--
+
+CREATE TABLE `tbl_new` (
+  `id` int(11) NOT NULL,
+  `name` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tbl_new`
+--
+
+INSERT INTO `tbl_new` (`id`, `name`) VALUES
+(1, 'Trồng trọt'),
+(2, 'Hướng dẫn trồng rau'),
+(3, 'Nhân Giống'),
+(4, 'Chơi Cảnh'),
+(5, 'Sâu Bệnh Hại Cây Trồng'),
+(6, 'Phân Bón'),
+(7, 'Sức khỏe và làm đẹp'),
+(8, 'Món ăn');
 
 -- --------------------------------------------------------
 
@@ -172,6 +197,12 @@ ALTER TABLE `tbl_danhmuc`
   ADD PRIMARY KEY (`id_danhmuc`);
 
 --
+-- Indexes for table `tbl_new`
+--
+ALTER TABLE `tbl_new`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tbl_sanpham`
 --
 ALTER TABLE `tbl_sanpham`
@@ -211,6 +242,12 @@ ALTER TABLE `tbl_customer`
 --
 ALTER TABLE `tbl_danhmuc`
   MODIFY `id_danhmuc` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `tbl_new`
+--
+ALTER TABLE `tbl_new`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `tbl_sanpham`
