@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 20, 2023 at 11:37 AM
+-- Generation Time: Apr 20, 2023 at 06:56 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -153,20 +153,23 @@ CREATE TABLE `tbl_user` (
   `user_id` int(11) NOT NULL,
   `name` varchar(100) DEFAULT NULL,
   `username` varchar(20) DEFAULT NULL,
-  `password` int(20) NOT NULL,
-  `password_re` int(20) NOT NULL,
+  `password` text NOT NULL,
+  `password_re` text NOT NULL,
   `address` varchar(100) NOT NULL,
   `email` varchar(100) DEFAULT NULL,
-  `role` tinyint(1) NOT NULL DEFAULT 0
+  `role` tinyint(1) NOT NULL DEFAULT 0,
+  `phone` text DEFAULT NULL,
+  `img` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `tbl_user`
 --
 
-INSERT INTO `tbl_user` (`user_id`, `name`, `username`, `password`, `password_re`, `address`, `email`, `role`) VALUES
-(1, NULL, 'admin', 123, 123, '', NULL, 1),
-(3, NULL, 'user_name1', 123, 123, '', NULL, 0);
+INSERT INTO `tbl_user` (`user_id`, `name`, `username`, `password`, `password_re`, `address`, `email`, `role`, `phone`, `img`) VALUES
+(1, NULL, 'admin', '123', '123', '', NULL, 1, NULL, NULL),
+(3, NULL, 'user_name1', '123', '123', '', NULL, 0, NULL, NULL),
+(6, 'Huynh Le', 'huynhle123', '$2y$10$m00/wQw5RhM8ok2CfuirOugB25Q7QmrHsTSS1ThFjw.B8iCdJ07Wm', '$2y$10$m00/wQw5RhM8ok2CfuirOugB25Q7QmrHsTSS1ThFjw.B8iCdJ07Wm', 'SG', 'huynhle123@gmail.com', 1, '09971237123', '/SourceCode_Implement/asset/img/user/huynhle123/thumb.jpg');
 
 --
 -- Indexes for dumped tables
@@ -259,7 +262,7 @@ ALTER TABLE `tbl_sanpham`
 -- AUTO_INCREMENT for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables
