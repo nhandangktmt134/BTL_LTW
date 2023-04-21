@@ -14,8 +14,8 @@
 | Name | ID |
 | :---- | :----: |
 | Nguyễn Hoàng Minh Trí | 2010734 |
-| Đặng Nam Thiện Nhân | 2011142 |
-| Đỗ Thành Minh | 2011610 |
+| Đặng Nam Thiện Nhân | 2011725 |
+| Lê Huỳnh | 1833446 |
 | Hà Huy Hiệu  | Leave |
 
 <br> 
