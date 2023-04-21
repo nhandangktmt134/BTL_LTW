@@ -4,5 +4,5 @@
         function default() {
             $this->view("home");
         }
-    }    
+    }
 ?>

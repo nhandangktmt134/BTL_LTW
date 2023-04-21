@@ -44,12 +44,12 @@
 	
 </head>
 <body>
-	<!-- 
+	
     <div class="loader">
         <div class="loader-inner">
             <div class="circle"></div>
         </div>
-    </div>-->
+    </div>
 	
 	<!-- header -->
 	<div class="top-header-area" id="sticker">
@@ -74,11 +74,11 @@
 										<li><a href="index_2.html">Slider Home</a></li>
 									</ul> -->
 								</li>
-								<li><a href="about.html">About</a></li>
+								<li><a href="./about">About</a></li>
 								<li><a href="#">Pages</a>
 									<ul class="sub-menu">
 										<li><a href="404.html">404 page</a></li>
-										<li><a href="about.html">About</a></li>
+										<li><a href="./about">About</a></li>
 										<li><a href="cart.html">Cart</a></li>
 										<li><a href="checkout.html">Check Out</a></li>
 										<li><a href="./contact">Contact</a></li>
@@ -109,13 +109,34 @@
 								<li></li><li></li><li></li>	<li></li><li></li><li></li>
 								<li><a class="shopping-cart" href="./cart"><i class="fas fa-shopping-cart"></i></a> </li>
 								<li><a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a></li>										
-								<li><a class="mobile-hide search-bar-icon" href="#"><i class="fa-solid fa-user"></i></a>
-									<ul class="sub-menu">
-										<li><a href="./login">Login</a></li>
-										<li><a href="./signup">Sign_Up</a></li>
-									</ul>					
-								</li>
 								
+								<?php 
+									if(isset($_SESSION['username'])) {
+										echo "
+										<li>
+											<a class='mobile-hide search-bar-icon' href='#' style='text-decoration: none'>
+												<span>{$_SESSION['username']}</span>
+												<i class='fa fa-user-circle'></i>
+											</a>
+											<ul class='sub-menu'>
+												<li>
+													<a href='./admin' style='text-decoration: none'>Trang quản lý</a>
+												</li>
+												<li><a href='./controller/Logout.php' style='text-decoration: none'>Đăng xuất</a></li>
+											</ul>
+										</li>
+										";
+									} else {
+										echo "
+										<li><a class='mobile-hide search-bar-icon' href='#'><i class='fa-solid fa-user'></i></a>
+											<ul class='sub-menu'>
+												<li><a href='./login' style='text-decoration: none'>Đăng nhập</a></li>
+												<li><a href='./signup' style='text-decoration: none'>Đăng ký</a></li>
+											</ul>					
+										</li> 
+										";
+									}
+								?>
 							</ul>
 						</nav>
 						<a class="mobile-show search-bar-icon" href="#"><i class="fas fa-search"></i></a>
