@@ -723,7 +723,7 @@
         href='https://nongsansach.com/wp-content/plugins/revslider/public/assets/css/rs6.css?ver=6.3.3' type='text/css'
         media='all' />
     <style id='rs-plugin-settings-inline-css' type='text/css'>
-    #rs-demo-id {}
+    /* #rs-demo-id {} */
     </style>
     <link rel='stylesheet' id='woocommerce-layout-css'
         href='https://nongsansach.com/wp-content/plugins/woocommerce/assets/css/woocommerce-layout.css?ver=7.4.0'
@@ -2052,7 +2052,7 @@
   
     <div id="page" class="site">
         <div id="content" class="content">
-            <div class="page-title" style="">
+            <div class="page-title">
                 <div class="container">
                     <div class="title">Bài viết</div>
                 </div>

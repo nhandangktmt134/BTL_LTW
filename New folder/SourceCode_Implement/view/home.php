@@ -60,8 +60,8 @@
 							<h1>Sản phẩm chất lượng</h1>
 							<p style="color:white; font-size:larger;">Sản phẩm của chúng tôi được thu hoạch mới, rửa sạch sẫn sàng đóng hộp và cuối cùng được chuyển từ trang trại gia đình chúng tôi đến ngay ngưỡng nhà bạn </p>
 							<div class="hero-btns">
-								<a href="shop.html" class="boxed-btn">Fruit Collection</a>
-								<a href="./contact" class="bordered-btn">Contact Us</a>
+								<a href="shop" class="boxed-btn">Fruit Collection</a>
+								<a href="contact" class="bordered-btn">Contact Us</a>
 							</div>
 						</div>
 					</div>
@@ -125,73 +125,15 @@
 					</div>
 				</div>
 			</div>
-
-			<div class="row">
-				<div class="col-lg-4 col-md-6 text-center">
-					<div class="single-product-item">
-						<div class="product-image">
-							<a href="single-product.html"><img src="./asset/img/products/product-img-1.jpg" alt=""></a>
-						</div>
-						<h3>Strawberry</h3>
-						<p class="product-price"><span>Per Kg</span> 85$ </p>
-						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 text-center">
-					<div class="single-product-item">
-						<div class="product-image">
-							<a href="single-product.html"><img src="./asset/img/products/product-img-2.jpg" alt=""></a>
-						</div>
-						<h3>Berry</h3>
-						<p class="product-price"><span>Per Kg</span> 70$ </p>
-						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0 text-center">
-					<div class="single-product-item">
-						<div class="product-image">
-							<a href="single-product.html"><img src="./asset/img/products/product-img-3.jpg" alt=""></a>
-						</div>
-						<h3>Lemon</h3>
-						<p class="product-price"><span>Per Kg</span> 35$ </p>
-						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-					</div>
-				</div>
-			</div>
+			<?php
+                require_once("./view/product_display.php");
+            ?>
+			
 		</div>
 	</div>
 	<!-- end product section -->
 
-	<!-- cart banner section -->
-	<section class="cart-banner pt-100 pb-100">
-    	<div class="container">
-        	<div class="row clearfix">
-            	<!--Image Column-->
-            	<div class="image-column col-lg-6">
-                	<div class="image">
-                    	<div class="price-box">
-                        	<div class="inner-price">
-                                <span class="price">
-                                    <strong>30%</strong> <br> off per kg
-                                </span>
-                            </div>
-                        </div>
-                    	<img src="./asset/img/a.jpg" alt="">
-                    </div>
-                </div>
-                <!--Content Column-->
-                <div class="content-column col-lg-6">
-					<h3><span class="orange-text">Deal</span> of the month</h3>
-                    <h4>Hikan Strwaberry</h4>
-                    <div class="text">Quisquam minus maiores repudiandae nobis, minima saepe id, fugit ullam similique! Beatae, minima quisquam molestias facere ea. Perspiciatis unde omnis iste natus error sit voluptatem accusant</div>
-                    <!--Countdown Timer-->
-                    <div class="time-counter"><div class="time-countdown clearfix" data-countdown="2020/2/01"><div class="counter-column"><div class="inner"><span class="count">00</span>Days</div></div> <div class="counter-column"><div class="inner"><span class="count">00</span>Hours</div></div>  <div class="counter-column"><div class="inner"><span class="count">00</span>Mins</div></div>  <div class="counter-column"><div class="inner"><span class="count">00</span>Secs</div></div></div></div>
-                	<a href="cart.html" class="cart-btn mt-3"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- end cart banner section -->
+	
 
 	<!-- testimonail-section -->
 	<div class="testimonail-section mt-150 mb-150">
@@ -276,7 +218,7 @@
 						<h2>Chúng tôi là <span class="orange-text">Nông sản sạch</span></h2>
 						<p>Cửa hàng nông sản sạch NongSanSach.Com là một website cung cấp thực phẩm an toàn, 100% tự nhiên, nông sản sạch cho người dân. Với mong muốn thực phẩm an toàn sẽ tới tay mọi gia đình Việt Nam. Các sản phẩm tiêu biểu của chúng tôi gồm: Các loại trà, ngũ cốc dinh dưỡng, hạt dinh dưỡng, trái cây sấy,….</p>
 						<p>Cùng chung tay xây dựng một cuộc sống an toàn và chất lượng cho người dân Việt Nam.</p>
-						<a href="./about" class="boxed-btn mt-4">know more</a>
+						<a href="about.html" class="boxed-btn mt-4">know more</a>
 					</div>
 				</div>
 			</div>
@@ -285,13 +227,13 @@
 	<!-- end advertisement section -->
 	
 	<!-- shop banner -->
-	<section class="shop-banner">
+	<!-- <section class="shop-banner">
     	<div class="container">
         	<h3>December sale is on! <br> with big <span class="orange-text">Discount...</span></h3>
             <div class="sale-percent"><span>Sale! <br> Upto</span>50% <span>off</span></div>
-            <a href="shop.html" class="cart-btn btn-lg">Shop Now</a>
+            <a href="shop.html" class="cart-btn btn-lg">Shop Now</a><div class="latest-news-bg news-bg-3"></div>
         </div>
-    </section>
+    </section> -->
 	<!-- end shop banner -->
 
 	<!-- latest news -->
@@ -310,7 +252,7 @@
 			<div class="row">
 				<div class="col-lg-4 col-md-6">
 					<div class="single-latest-news">
-						<a href="single-news.html"><div class="latest-news-bg news-bg-1"></div></a>
+						<a href="single-news.html"><div class="latest-news-bg news-bg-1" style="background-image: url('./asset/img/products/product-img-1.jpg');"></div></a>
 						<div class="news-text-box">
 							<h3><a href="single-news.html">You will vainly look for fruit on it in autumn.</a></h3>
 							<p class="blog-meta">
@@ -324,7 +266,7 @@
 				</div>
 				<div class="col-lg-4 col-md-6">
 					<div class="single-latest-news">
-						<a href="single-news.html"><div class="latest-news-bg news-bg-2"></div></a>
+						<a href="single-news.html"><div class="latest-news-bg news-bg-2" style="background-image: url('./asset/img/products/product-img-1.jpg');"></div></a>
 						<div class="news-text-box">
 							<h3><a href="single-news.html">A man's worth has its season, like tomato.</a></h3>
 							<p class="blog-meta">
@@ -338,7 +280,7 @@
 				</div>
 				<div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0">
 					<div class="single-latest-news">
-						<a href="single-news.html"><div class="latest-news-bg news-bg-3"></div></a>
+						<a href="single-news.html"><div class="latest-news-bg news-bg-3"  style="background-image: url('./asset/img/products/product-img-1.jpg');"></div></a>
 						<div class="news-text-box">
 							<h3><a href="single-news.html">Good thoughts bear good fresh juicy fruit.</a></h3>
 							<p class="blog-meta">
@@ -360,45 +302,8 @@
 	</div>
 	<!-- end latest news -->
 
-	<!-- logo carousel -->
-	<div class="logo-carousel-section">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="logo-carousel-inner">
-						<div class="single-logo-item">
-							<img src="./asset/img/company-logos/1.png" alt="">
-						</div>
-						<div class="single-logo-item">
-							<img src="./asset/img/company-logos/2.png" alt="">
-						</div>
-						<div class="single-logo-item">
-							<img src="./asset/img/company-logos/3.png" alt="">
-						</div>
-						<div class="single-logo-item">
-							<img src="./asset/img/company-logos/4.png" alt="">
-						</div>
-						<div class="single-logo-item">
-							<img src="./asset/img/company-logos/5.png" alt="">
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- end logo carousel -->
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
 
 <?php
   require_once("./view/footer.php");
