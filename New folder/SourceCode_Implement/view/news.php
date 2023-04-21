@@ -584,7 +584,7 @@
         href='https://nongsansach.com/wp-content/plugins/revslider/public/assets/css/rs6.css?ver=6.3.3' type='text/css'
         media='all' />
     <style id='rs-plugin-settings-inline-css' type='text/css'>
-    #rs-demo-id {}
+    /* #rs-demo-id {} */
     </style>
     <link rel='stylesheet' id='woocommerce-layout-css'
         href='https://nongsansach.com/wp-content/plugins/woocommerce/assets/css/woocommerce-layout.css?ver=7.4.0'
@@ -721,7 +721,7 @@
         padding-top: 110px;
         padding-bottom: 170px;
         background-color: #7fca90;
-        background-image: url(./asset/img/big_title_bg_1.png");
+        background-image: url(./asset/img/big_title_bg_1.png);
     }
 
     .btn {
