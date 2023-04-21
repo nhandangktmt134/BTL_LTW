@@ -12,7 +12,7 @@
     function getuserinfo($username, $password){
         $conn=connect();
         $sql="SELECT * FROM tbl_user WHERE user='".$username."' AND pass='".$password."'";
-        echo $sql;
+        
         $stmt = $conn->prepare($sql);
         $stmt->execute();
         $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);

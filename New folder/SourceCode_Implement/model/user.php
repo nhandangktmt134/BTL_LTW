@@ -6,7 +6,14 @@
         {
             $this->db = new Database();
         }
-
+        public function getalluser() {
+            
+            $conn = $this->db->conn;
+            $sql="SELECT * FROM tbl_user";
+            $result = mysqli_query($conn, $sql);
+            // $kq = $result->fetch_array();
+            return $result;
+        }
         public function checkuser($username, $password){
             $conn = $this->db->conn;
             $stmt = $conn->prepare("SELECT * FROM tbl_user WHERE username ='".$username."' AND password ='".$password."'");
