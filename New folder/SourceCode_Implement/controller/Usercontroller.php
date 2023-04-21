@@ -46,7 +46,14 @@ class user extends Controller {
             // header('Location: ./login');
         }
     }
+    function getall() {
+        $listuser = $this->userModelConst->getalluser();
+        $_SESSION['listuser'] = $listuser;
+        include('./view/table_user.php');
 
+        // view table
+    }
+   
     function signout() {
         session_unset();
         $_SESSION = array();
@@ -92,14 +99,13 @@ class user extends Controller {
 
                 if ($success == true) {
                     $_SESSION['msg'] = "Đăng kí thành công ! ";
-                    
+                    $_SESSION['error'] = "";
+                } else {
+                    $_SESSION['error'] = "Tên tài khoản đã được sử dụng!";
                 }
-                // $this->view("signup", ["err" => "Tên tài khoản đã được sử dụng!",]);
-                $_SESSION['error'] = "Tên tài khoản đã được sử dụng!";
+                
             }
-            // $this->view("signup", ["msg" => $msg,]);
-        } else {
-            // $this->view("signup", []);
+            
         }
     }
 
