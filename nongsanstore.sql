@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 20, 2023 at 06:56 PM
+-- Generation Time: Apr 21, 2023 at 05:13 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -140,8 +140,7 @@ INSERT INTO `tbl_sanpham` (`sanpham_id`, `category_id`, `sanpham_name`, `sanpham
 (3, 2, 'Grape', 'The pulp is juicy and sweet.', 'Grapes are fleshy, rounded fruits that grow in clusters made up of many fruits of greenish, yellowish or purple skin. The pulp is juicy and sweet, and it contain several seeds or pips. It is a well-known fruit; it is eaten raw, although it is mainly used for making wine.', '200000', '2000', 0, 0, 0, './asset/img/products/product-img-2.jpg'),
 (4, 2, 'Kwiwi', 'Thekiwi fruit is a true berry. ', 'The ellipsoidal kiwi fruit is a true berry and has furry brownish green skin. The firm translucent green flesh has numerous edible purple-black seeds embedded around a white centre. The deciduous leaves are borne alternately on long petioles (leaf stems), and young leaves are covered with reddish hairs.', '500000', '200000', 0, 1, 0, './asset/img/products/product-img-4.jpg'),
 (5, 2, 'Vải', 'Giàu Vitamin cùng các dưỡng chất rất tốt cho sức khỏe, làn da của bạn.', 'Vải cùng họ với chôm chôm và nhãn, có nguồn gốc từ miền nam Trung Quốc.  Là loại trái cây phổ biến được yêu thích mỗi khi hè đến, vải giàu Vitamin cùng các dưỡng chất nên rất tốt cho sức khỏe cũng như làn da của bạn.', '100000', '80000', 0, 0, 0, './asset/img/products/product-img-6.jpg'),
-(6, 2, 'Cam', 'Cam là loại quả giàu chất chống oxy hóa và chất phytochemical. ', 'Cam là loại quả giàu chất chống oxy hóa và chất phytochemical. Theo các nhà khoa học Anh: “Bình quân trong một trái cam có chứa khoảng 170 mg phytochemicals bao gồm các chất dưỡng da và chống lão hóa”. Chuyên gia dinh dưỡng Monique dos Santos cho biết cam được yêu thích và có lợi cho người khỏe mạnh cũng như các bệnh nhân. Chính vì vậy các công dụng của quả cam có thể kể đến như: giúp giải nhiệt, thỏa mãn cơn khát cho người có cường độ vân động cao, tăng cường hệ tiêu hóa và hệ miễn dịch của cơ thể.', '150000', '10000', 0, 0, 0, './asset/img/products/product-img-3.jpg'),
-(7, 1, 'Honey', 'Honey is a sweet.', 'Honey is a sweet fluid made by honeybees using the nectar of flowering plants. There are about 320 different varieties of honey, which vary in color, odor and flavor. Honey contains mostly sugar, as well as a mix of amino acids, vitamins, minerals, iron, zinc and antioxidants.', '800000', '600000', 0, 1, 100, './asset/img/products/product-img-7.jpg');
+(6, 2, 'Cam', 'Cam là loại quả giàu chất chống oxy hóa và chất phytochemical. ', 'Cam là loại quả giàu chất chống oxy hóa và chất phytochemical. Theo các nhà khoa học Anh: “Bình quân trong một trái cam có chứa khoảng 170 mg phytochemicals bao gồm các chất dưỡng da và chống lão hóa”. Chuyên gia dinh dưỡng Monique dos Santos cho biết cam được yêu thích và có lợi cho người khỏe mạnh cũng như các bệnh nhân. Chính vì vậy các công dụng của quả cam có thể kể đến như: giúp giải nhiệt, thỏa mãn cơn khát cho người có cường độ vân động cao, tăng cường hệ tiêu hóa và hệ miễn dịch của cơ thể.', '150000', '10000', 0, 0, 0, './asset/img/products/product-img-3.jpg');
 
 -- --------------------------------------------------------
 
@@ -167,9 +166,12 @@ CREATE TABLE `tbl_user` (
 --
 
 INSERT INTO `tbl_user` (`user_id`, `name`, `username`, `password`, `password_re`, `address`, `email`, `role`, `phone`, `img`) VALUES
-(1, NULL, 'admin', '123', '123', '', NULL, 1, NULL, NULL),
-(3, NULL, 'user_name1', '123', '123', '', NULL, 0, NULL, NULL),
-(6, 'Huynh Le', 'huynhle123', '$2y$10$m00/wQw5RhM8ok2CfuirOugB25Q7QmrHsTSS1ThFjw.B8iCdJ07Wm', '$2y$10$m00/wQw5RhM8ok2CfuirOugB25Q7QmrHsTSS1ThFjw.B8iCdJ07Wm', 'SG', 'huynhle123@gmail.com', 1, '09971237123', '/SourceCode_Implement/asset/img/user/huynhle123/thumb.jpg');
+(6, 'Huynh Le', 'huynhle123', '$2y$10$m00/wQw5RhM8ok2CfuirOugB25Q7QmrHsTSS1ThFjw.B8iCdJ07Wm', '$2y$10$m00/wQw5RhM8ok2CfuirOugB25Q7QmrHsTSS1ThFjw.B8iCdJ07Wm', 'SG', 'huynhle123@gmail.com', 1, '09971237123', '/SourceCode_Implement/asset/img/user/huynhle123/thumb.jpg'),
+(8, NULL, 'admin2', '123', '123', 'SG', 'admin@gmail.com', 1, '123123', NULL),
+(9, 'huynh lezz', 'huynhle1234', '$2y$10$ZKAXwpMlHTckdfWijqZlLOpCLB9erDqkMVp9xQ0KDnoiEkmao1/66', '$2y$10$ZKAXwpMlHTckdfWijqZlLOpCLB9erDqkMVp9xQ0KDnoiEkmao1/66', 'SG', 'huynhle1234@gmail.com', 0, '12312312', '/SourceCode_Implement/asset/img/user/huynhle1234/logo.png'),
+(10, 'huynh lezz', 'huynhle1234', '$2y$10$X6BhmuG3iR74MQf7OQNlyeG6AlQ8Whsjcq.9jADwRAzVQvFJ3/Zca', '$2y$10$X6BhmuG3iR74MQf7OQNlyeG6AlQ8Whsjcq.9jADwRAzVQvFJ3/Zca', 'SG', 'huynhle1234@gmail.com', 0, '12312312', '/SourceCode_Implement/asset/img/user/huynhle1234/logo.png'),
+(11, 'Huynh lee', 'huynhle12345', '$2y$10$ijM047cZDFPBQuu/tC.wO.t3O6HZ1dWKzI8b.QPTihHj0KJ0DudyK', '$2y$10$ijM047cZDFPBQuu/tC.wO.t3O6HZ1dWKzI8b.QPTihHj0KJ0DudyK', 'SG', 'huynhle1@gmail.com', 0, '123123', '/SourceCode_Implement/asset/img/user/huynhle12345/thumb.jpg'),
+(12, 'Huynh lee', 'huynhle12345', '$2y$10$rCcSKAEy4wRlg3Ey.Q/uXOw9C5H6JRY7cc4y2oTuhxbxbo/.FptLS', '$2y$10$rCcSKAEy4wRlg3Ey.Q/uXOw9C5H6JRY7cc4y2oTuhxbxbo/.FptLS', 'SG', 'huynhle1@gmail.com', 0, '123123', '/SourceCode_Implement/asset/img/user/huynhle12345/thumb.jpg');
 
 --
 -- Indexes for dumped tables
@@ -262,7 +264,7 @@ ALTER TABLE `tbl_sanpham`
 -- AUTO_INCREMENT for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Constraints for dumped tables

@@ -7,33 +7,6 @@
     <title>NÔNG SẢN SẠCH</title>
 </head>
 <body>
-	<!-- logo carousel -->
-		<div class="logo-carousel-section">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="logo-carousel-inner">
-						<div class="single-logo-item">
-							<img src="./asset/img/company-logos/1.png" alt="">
-						</div>
-						<div class="single-logo-item">
-							<img src="./asset/img/company-logos/2.png" alt="">
-						</div>
-						<div class="single-logo-item">
-							<img src="./asset/img/company-logos/3.png" alt="">
-						</div>
-						<div class="single-logo-item">
-							<img src="./asset/img/company-logos/4.png" alt="">
-						</div>
-						<div class="single-logo-item">
-							<img src="./asset/img/company-logos/5.png" alt="">
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- end logo carousel -->
     <!-- footer -->
 	<div class="footer-area">
 		<div class="container">
@@ -61,11 +34,11 @@
 					<div class="footer-box pages">
 						<h2 class="widget-title">Pages</h2>
 						<ul>
-							<li><a href="index.html">Home</a></li>
-							<li><a href="about.html">About</a></li>
+							<li><a href="./home">Home</a></li>
+							<li><a href="./about">About</a></li>
 							<li><a href="services.html">Shop</a></li>
 							<li><a href="news.html">News</a></li>
-							<li><a href="contact.html">Contact</a></li>
+							<li><a href="./contact">Contact</a></li>
 						</ul>
 					</div>
 				</div>

@@ -1,5 +1,5 @@
 <?php 
-    class SignUp extends Controller
+    class Signup extends Controller
     {
         function default() {
             $this->view("signup");

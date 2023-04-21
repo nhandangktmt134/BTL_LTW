@@ -31,12 +31,12 @@
                     ?>
                 </div>
                 <div class="product-image">
-                    <a href="./singleproduct?act=sanpham&id='.$row['sanpham_id'].'"><img src="<?php  echo $row['sanpham_img']?>" alt=""></a>
+                    <a href="./singleproduct?id=<?= $row['sanpham_id'] ?>"><img src="<?php  echo $row['sanpham_img']?>" alt=""></a>
                 </div>
                 <h3><?php  echo $row['sanpham_name']?>    </h3>
                 <p class="product-price"><span><?php  echo $row['sanpham_gia']?>VNd/Kg</span> </p>
                 <p> <?php  echo $row['sanpham_chitiet']?><p>
-                <a href="./cart" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+                <a href="<?php if(isset($_SESSION['username'])) {echo "./cart";} else {echo "./login";} ?>" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
         </div>
     </div>
     <?php endforeach; ?>      
