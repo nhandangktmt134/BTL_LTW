@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Apr 21, 2023 at 05:13 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th4 21, 2023 lúc 06:28 PM
+-- Phiên bản máy phục vụ: 10.4.28-MariaDB
+-- Phiên bản PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `nongsanstore`
+-- Cơ sở dữ liệu: `nongsanstore`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_admin`
+-- Cấu trúc bảng cho bảng `tbl_admin`
 --
 
 CREATE TABLE `tbl_admin` (
@@ -37,7 +37,7 @@ CREATE TABLE `tbl_admin` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_category`
+-- Cấu trúc bảng cho bảng `tbl_category`
 --
 
 CREATE TABLE `tbl_category` (
@@ -48,7 +48,7 @@ CREATE TABLE `tbl_category` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_customer`
+-- Cấu trúc bảng cho bảng `tbl_customer`
 --
 
 CREATE TABLE `tbl_customer` (
@@ -65,7 +65,7 @@ CREATE TABLE `tbl_customer` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_danhmuc`
+-- Cấu trúc bảng cho bảng `tbl_danhmuc`
 --
 
 CREATE TABLE `tbl_danhmuc` (
@@ -76,7 +76,7 @@ CREATE TABLE `tbl_danhmuc` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `tbl_danhmuc`
+-- Đang đổ dữ liệu cho bảng `tbl_danhmuc`
 --
 
 INSERT INTO `tbl_danhmuc` (`id_danhmuc`, `name_danhmuc`, `uutien`, `hienthi`) VALUES
@@ -88,7 +88,7 @@ INSERT INTO `tbl_danhmuc` (`id_danhmuc`, `name_danhmuc`, `uutien`, `hienthi`) VA
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_new`
+-- Cấu trúc bảng cho bảng `tbl_new`
 --
 
 CREATE TABLE `tbl_new` (
@@ -97,7 +97,7 @@ CREATE TABLE `tbl_new` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `tbl_new`
+-- Đang đổ dữ liệu cho bảng `tbl_new`
 --
 
 INSERT INTO `tbl_new` (`id`, `name`) VALUES
@@ -113,7 +113,7 @@ INSERT INTO `tbl_new` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_sanpham`
+-- Cấu trúc bảng cho bảng `tbl_sanpham`
 --
 
 CREATE TABLE `tbl_sanpham` (
@@ -131,7 +131,7 @@ CREATE TABLE `tbl_sanpham` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `tbl_sanpham`
+-- Đang đổ dữ liệu cho bảng `tbl_sanpham`
 --
 
 INSERT INTO `tbl_sanpham` (`sanpham_id`, `category_id`, `sanpham_name`, `sanpham_chitiet`, `sanpham_mota`, `sanpham_gia`, `sanpham_giakm`, `sanpham_active`, `sanpham_hot`, `sanpham_soluong`, `sanpham_img`) VALUES
@@ -145,7 +145,36 @@ INSERT INTO `tbl_sanpham` (`sanpham_id`, `category_id`, `sanpham_name`, `sanpham
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_user`
+-- Cấu trúc bảng cho bảng `tbl_sanpham_display`
+--
+
+CREATE TABLE `tbl_sanpham_display` (
+  `sanpham_id` int(11) NOT NULL,
+  `category_id` int(11) NOT NULL,
+  `sanpham_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `sanpham_chitiet` text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `sanpham_mota` text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `sanpham_gia` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `sanpham_giakm` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `sanpham_active` int(11) NOT NULL,
+  `sanpham_hot` int(11) NOT NULL,
+  `sanpham_soluong` int(11) NOT NULL,
+  `sanpham_img` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `tbl_sanpham_display`
+--
+
+INSERT INTO `tbl_sanpham_display` (`sanpham_id`, `category_id`, `sanpham_name`, `sanpham_chitiet`, `sanpham_mota`, `sanpham_gia`, `sanpham_giakm`, `sanpham_active`, `sanpham_hot`, `sanpham_soluong`, `sanpham_img`) VALUES
+(1, 2, 'Strawberry', 'Soft, sweet, bright red berries. ', 'A strawberry is both a low-growing, flowering plant and also the name of the fruit that it produces. Strawberries are soft, sweet, bright red berries. They\'re also delicious. Strawberries have tiny edible seeds, which grow all over their surface.\r\n\r\n', '1000000', '800000', 0, 0, 1000, './asset/img/products/product-img-1.jpg'),
+(2, 2, 'Apple', 'Sweet, another sour.', 'An apple is a round fruit with red or green skin and a whitish inside. One variety of apple might be sweet, another sour. The apple isn\'t just a fruit.', '100000', '', 0, 1, 1000, './asset/img/products/product-img-5.jpg'),
+(3, 2, 'Grape', 'The pulp is juicy and sweet.', 'Grapes are fleshy, rounded fruits that grow in clusters made up of many fruits of greenish, yellowish or purple skin. The pulp is juicy and sweet, and it contain several seeds or pips. It is a well-known fruit; it is eaten raw, although it is mainly used for making wine.', '200000', '2000', 0, 0, 0, './asset/img/products/product-img-2.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `tbl_user`
 --
 
 CREATE TABLE `tbl_user` (
@@ -162,7 +191,7 @@ CREATE TABLE `tbl_user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `tbl_user`
+-- Đang đổ dữ liệu cho bảng `tbl_user`
 --
 
 INSERT INTO `tbl_user` (`user_id`, `name`, `username`, `password`, `password_re`, `address`, `email`, `role`, `phone`, `img`) VALUES
@@ -171,107 +200,108 @@ INSERT INTO `tbl_user` (`user_id`, `name`, `username`, `password`, `password_re`
 (9, 'huynh lezz', 'huynhle1234', '$2y$10$ZKAXwpMlHTckdfWijqZlLOpCLB9erDqkMVp9xQ0KDnoiEkmao1/66', '$2y$10$ZKAXwpMlHTckdfWijqZlLOpCLB9erDqkMVp9xQ0KDnoiEkmao1/66', 'SG', 'huynhle1234@gmail.com', 0, '12312312', '/SourceCode_Implement/asset/img/user/huynhle1234/logo.png'),
 (10, 'huynh lezz', 'huynhle1234', '$2y$10$X6BhmuG3iR74MQf7OQNlyeG6AlQ8Whsjcq.9jADwRAzVQvFJ3/Zca', '$2y$10$X6BhmuG3iR74MQf7OQNlyeG6AlQ8Whsjcq.9jADwRAzVQvFJ3/Zca', 'SG', 'huynhle1234@gmail.com', 0, '12312312', '/SourceCode_Implement/asset/img/user/huynhle1234/logo.png'),
 (11, 'Huynh lee', 'huynhle12345', '$2y$10$ijM047cZDFPBQuu/tC.wO.t3O6HZ1dWKzI8b.QPTihHj0KJ0DudyK', '$2y$10$ijM047cZDFPBQuu/tC.wO.t3O6HZ1dWKzI8b.QPTihHj0KJ0DudyK', 'SG', 'huynhle1@gmail.com', 0, '123123', '/SourceCode_Implement/asset/img/user/huynhle12345/thumb.jpg'),
-(12, 'Huynh lee', 'huynhle12345', '$2y$10$rCcSKAEy4wRlg3Ey.Q/uXOw9C5H6JRY7cc4y2oTuhxbxbo/.FptLS', '$2y$10$rCcSKAEy4wRlg3Ey.Q/uXOw9C5H6JRY7cc4y2oTuhxbxbo/.FptLS', 'SG', 'huynhle1@gmail.com', 0, '123123', '/SourceCode_Implement/asset/img/user/huynhle12345/thumb.jpg');
+(12, 'Huynh lee', 'huynhle12345', '$2y$10$rCcSKAEy4wRlg3Ey.Q/uXOw9C5H6JRY7cc4y2oTuhxbxbo/.FptLS', '$2y$10$rCcSKAEy4wRlg3Ey.Q/uXOw9C5H6JRY7cc4y2oTuhxbxbo/.FptLS', 'SG', 'huynhle1@gmail.com', 0, '123123', '/SourceCode_Implement/asset/img/user/huynhle12345/thumb.jpg'),
+(13, 'Hoang Tri', 'hoangtri123', '$2y$10$UgxRqLaKYEJtxZY1bn9yP.yrs2JNMkql8syH73IBGEMNPbWFR4rvO', '$2y$10$UgxRqLaKYEJtxZY1bn9yP.yrs2JNMkql8syH73IBGEMNPbWFR4rvO', 'Đinh Trường Sanh', 'hoangminhtri2002zz@gmail.com', 0, '0913840652', '');
 
 --
--- Indexes for dumped tables
+-- Chỉ mục cho các bảng đã đổ
 --
 
 --
--- Indexes for table `tbl_admin`
+-- Chỉ mục cho bảng `tbl_admin`
 --
 ALTER TABLE `tbl_admin`
   ADD PRIMARY KEY (`admin_id`);
 
 --
--- Indexes for table `tbl_category`
+-- Chỉ mục cho bảng `tbl_category`
 --
 ALTER TABLE `tbl_category`
   ADD PRIMARY KEY (`category_id`);
 
 --
--- Indexes for table `tbl_customer`
+-- Chỉ mục cho bảng `tbl_customer`
 --
 ALTER TABLE `tbl_customer`
   ADD PRIMARY KEY (`customer_id`);
 
 --
--- Indexes for table `tbl_danhmuc`
+-- Chỉ mục cho bảng `tbl_danhmuc`
 --
 ALTER TABLE `tbl_danhmuc`
   ADD PRIMARY KEY (`id_danhmuc`);
 
 --
--- Indexes for table `tbl_new`
+-- Chỉ mục cho bảng `tbl_new`
 --
 ALTER TABLE `tbl_new`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tbl_sanpham`
+-- Chỉ mục cho bảng `tbl_sanpham`
 --
 ALTER TABLE `tbl_sanpham`
   ADD PRIMARY KEY (`sanpham_id`),
   ADD KEY `fk_sanpham_danhmuc` (`category_id`);
 
 --
--- Indexes for table `tbl_user`
+-- Chỉ mục cho bảng `tbl_user`
 --
 ALTER TABLE `tbl_user`
   ADD PRIMARY KEY (`user_id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT cho các bảng đã đổ
 --
 
 --
--- AUTO_INCREMENT for table `tbl_admin`
+-- AUTO_INCREMENT cho bảng `tbl_admin`
 --
 ALTER TABLE `tbl_admin`
   MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tbl_category`
+-- AUTO_INCREMENT cho bảng `tbl_category`
 --
 ALTER TABLE `tbl_category`
   MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tbl_customer`
+-- AUTO_INCREMENT cho bảng `tbl_customer`
 --
 ALTER TABLE `tbl_customer`
   MODIFY `customer_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tbl_danhmuc`
+-- AUTO_INCREMENT cho bảng `tbl_danhmuc`
 --
 ALTER TABLE `tbl_danhmuc`
   MODIFY `id_danhmuc` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `tbl_new`
+-- AUTO_INCREMENT cho bảng `tbl_new`
 --
 ALTER TABLE `tbl_new`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `tbl_sanpham`
+-- AUTO_INCREMENT cho bảng `tbl_sanpham`
 --
 ALTER TABLE `tbl_sanpham`
   MODIFY `sanpham_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `tbl_user`
+-- AUTO_INCREMENT cho bảng `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- Constraints for dumped tables
+-- Các ràng buộc cho các bảng đã đổ
 --
 
 --
--- Constraints for table `tbl_sanpham`
+-- Các ràng buộc cho bảng `tbl_sanpham`
 --
 ALTER TABLE `tbl_sanpham`
   ADD CONSTRAINT `fk_sanpham_danhmuc` FOREIGN KEY (`category_id`) REFERENCES `tbl_danhmuc` (`id_danhmuc`);
