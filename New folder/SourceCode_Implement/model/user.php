@@ -25,7 +25,6 @@
                 $rowcount=mysqli_num_rows($result);
                 if($rowcount == 1) {
                     $hashed_password = $followingdata['password'];
-                    echo $hashed_password;
                     if(password_verify($password, $hashed_password)) {
                         return $followingdata;
                     } else {
