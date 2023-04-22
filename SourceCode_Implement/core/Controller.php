@@ -62,7 +62,7 @@
                         }
 
                         move_uploaded_file($file["img"]["tmp_name"], "./asset/img/products/" . $file["img"]["name"]);
-                        $img_profile = "/bookstore/asset/img/products/" . $file["img"]["name"];
+                        $img_profile = "./asset/img/products/" . $file["img"]["name"];
                     }
                    
                 } else {
