@@ -13,7 +13,6 @@
 <body>
   <div class="container-fluid">
     <h1>Danh sách sản phẩm</h1>
-    <a href="./add_product" class='btn btn-primary'>Thêm mới</a>
     <table class="table table-hover">
       <thead>
         <tr>

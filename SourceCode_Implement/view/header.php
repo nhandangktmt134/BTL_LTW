@@ -36,6 +36,7 @@
 			background-color: #051922;
 			color: #051922;
 		}
+		
 	</style>
 	<!-- fontawesome -->
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/solid.css" integrity="sha384-Tv5i09RULyHKMwX0E8wJUqSOaXlyu3SQxORObAI08iUwIalMmN5L6AvlPX2LMoSE" crossorigin="anonymous"/>
@@ -77,10 +78,7 @@
 								<li><a href="./about">About</a></li>
 								<li><a href="#">Pages</a>
 									<ul class="sub-menu">
-										<li><a href="404.html">404 page</a></li>
-										<li><a href="./about">About</a></li>
-										<li><a href="cart.html">Cart</a></li>
-										<li><a href="checkout.html">Check Out</a></li>
+										<li><a href="./about">About</a></li>		
 										<li><a href="./contact">Contact</a></li>
 										<li><a href="./news">News</a></li>
 										<li><a href="./shop">Shop</a></li>
@@ -101,13 +99,12 @@
 								<li><a href="./shop">Shop</a>
 									<ul class="sub-menu">
 										<li><a href="./shop">Shop</a></li>
-										<li><a href="checkout.html">Check Out</a></li>
-										<li><a href="single-product.html">Single Product</a></li>
-										<li><a href="cart.html">Cart</a></li>
+										<li><a href="./single-product">Single Product</a></li>
+										<li><a href="./payment">Cart</a></li>
 									</ul>
 								</li>
 								<li></li><li></li><li></li>	<li></li><li></li><li></li>
-								<li><a class="shopping-cart" href="./cart"><i class="fas fa-shopping-cart"></i></a> </li>
+								<li><a class="shopping-cart" href="./payment"><i class="fas fa-shopping-cart"></i></a> </li>
 								<li><a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a></li>										
 								
 								<?php 
