@@ -33,25 +33,28 @@
                     return false;
                 }
         }
-        // public function insertuser($role, $username, $firstname, $lastname, $email, $phone, $address, $img, $password) {
-        //     // prepare the SQL query
-        //     $query = "INSERT INTO tbl_user (role, username, name, email, phone, address, img, password, password_re) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        public function insertproduct($category_id, $sanpham_name, $sanpham_chitiet, $sanpham_mota, $sanpham_gia,
+         $sanpham_giakm, $sanpham_hot, $sanpham_soluong, $img) {
+            // prepare the SQL query
+            $query = "INSERT INTO tbl_sanpham (category_id, sanpham_name, sanpham_chitiet, sanpham_mota, sanpham_gia, sanpham_giakm, sanpham_hot, 
+            sanpham_soluong, sanpham_img) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
     
-        //     // prepare the statement
-        //     $stmt = $this->db->conn->prepare($query);
-        //     $name = $firstname . " " . $lastname;
-        //     // bind the parameters
-        //     $stmt->bind_param("sssssssss", $role, $username, $name, $email, $phone, $address, $img, $password, $password);
+            // prepare the statement
+            $stmt = $this->db->conn->prepare($query);
+            
+            // bind the parameters
+            $stmt->bind_param("sssssssss", $category_id, $sanpham_name, $sanpham_chitiet, $sanpham_mota, $sanpham_gia, $sanpham_giakm, $sanpham_hot, 
+            $sanpham_soluong, $img);
     
-        //     // execute the statement
-        //     $stmt->execute();
+            // execute the statement
+            $stmt->execute();
     
-        //     // check if the insert was successful
-        //     if ($stmt->affected_rows > 0) {
-        //         return true;
-        //     } else {
-        //         return false;
-        //     }
-        // }
+            // check if the insert was successful
+            if ($stmt->affected_rows > 0) {
+                return true;
+            } else {
+                return false;
+            }
+        }
     }
 ?>

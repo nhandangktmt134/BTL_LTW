@@ -23,7 +23,6 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-5">
-
                     <div class="single-product-img">
                         <img src="<?php  echo $product['sanpham_img']?>" alt="">
                     </div>
@@ -31,7 +30,12 @@
                 <div class="col-md-7">
                     <div class="single-product-content">
                         <h3><?php echo $product['sanpham_name'];?></h3>
-                        <p class="single-product-pricing"><?php echo $product['sanpham_gia'];?> </p><span>Per/Kg</span>
+                        <div class="description">
+                               <?php 
+                                if($product['sanpham_giakm']!=0) echo "<h2> Sale: ".$product['sanpham_giakm']   ."</h2>";
+                               ?> 
+                        </div>
+                        <p class="single-product-pricing"><?php echo "<h5>".$product['sanpham_gia']."</h5>";?> </p><span>Per/Kg</span>
                         <p><?php echo $product['sanpham_mota'];?></p>
                         <div class="single-product-form">
                             <div> <h5> Số lượng: <?php echo $product['sanpham_soluong'];?> Products</h5></div>
@@ -45,10 +49,7 @@
                                 <input type="hidden" name="product_gia" value="<?php echo $price?>">
                                 <input type="hidden" name="product_sl" value="<?php echo     $product['sanpham_soluong'];?>">
                                 <input type="submit" name="add_to_cart" value="Add To Cart">
-                            </form>
-                            <div class="description">
-                               <h3> Khuyến mãi: <?=$product['sanpham_giakm']?></h3>
-                            </div>
+                            </form>                           
                             <p><strong>Categories: </strong><?php echo $product['category_id'];?></p>
                         </div>
                         <h4>Share:</h4>

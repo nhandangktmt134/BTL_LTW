@@ -99,7 +99,6 @@
 								<li><a href="./shop">Shop</a>
 									<ul class="sub-menu">
 										<li><a href="./shop">Shop</a></li>
-										<li><a href="./single-product">Single Product</a></li>
 										<li><a href="./payment">Cart</a></li>
 									</ul>
 								</li>

@@ -28,7 +28,7 @@
          echo "Lỗi khi thêm sản phẩm vào giỏ hàng";
    }
    $slcl =$_POST['product_sl']-$quantifiy;
-   $sql = "UPDATE tbl_sanpham SET sanpham_soluong = $slcl";
+   $sql = "UPDATE tbl_sanpham SET sanpham_soluong = $slcl WHERE sanpham_name = '$name_sp'";
    $result = mysqli_query($conn,$sql); 
    $product = mysqli_fetch_assoc($result);   
    mysqli_close($conn);
