@@ -8,37 +8,87 @@ class user extends Controller {
         $this->userModelConst = new UserModel();
         $this->functionCore = new Controller();
     }
+    // function login()
+    // {
+    //     $username = "";
+    //     $password = "";
+    //     $success = false;
+    //     $msg1 = "";
+    //     if (isset($_POST['submit'])) {
+           
+    //         if (isset($_POST['username'])) {
+    //             $username = $_POST['username'];
+    //         }
+    //         if (isset($_POST['password'])) {
+    //             $password = $_POST['password'];
+    //         }
+    //         if ($username == "" || $password == "") {
+    //             $msg1 = "Tên đăng nhập hoặc mật khẩu không được để trống!";
+    //             $_SESSION['error'] = $msg1;
+    //         } else {
+    //             $user = $this->userModelConst->getuserinfo($username, $password);
+    //             print_r($user);
+    //             if ($user == false) {
+    //                 $msg1 = "Wrong username or password!";
+    //                 $_SESSION['error'] = $msg1;
+    //                 // exit();
+    //             } else {
+    //                 $_SESSION['username'] =$user['username'];
+    //                 $_SESSION['email'] = $user['email'];
+    //                 $_SESSION['role'] = $user['role'];
+    //                 $_SESSION['user_id'] = $user['user_id'];
+    //                 header("Location: ./home");
+    //                 // exit();
+    //             }
+    //         }
+    //     } else {
+    //         $_SESSION['error'] = $msg1;
+    //         // header('Location: ./login');
+    //     }
+    // }
+
+
     function login()
     {
         $username = "";
         $password = "";
         $success = false;
         $msg1 = "";
+        $max_attempts = 2; // maximum number of login attempts
         if (isset($_POST['submit'])) {
-           
-            if (isset($_POST['username'])) {
-                $username = $_POST['username'];
-            }
-            if (isset($_POST['password'])) {
-                $password = $_POST['password'];
-            }
-            if ($username == "" || $password == "") {
-                $msg1 = "Tên đăng nhập hoặc mật khẩu không được để trống!";
-                $_SESSION['error'] = $msg1;
+            if (isset($_SESSION['login_attempts'])) {
+                $_SESSION['login_attempts']++;
             } else {
-                $user = $this->userModelConst->getuserinfo($username, $password);
-                print_r($user);
-                if ($user == false) {
-                    $msg1 = "Wrong username or password!";
+                $_SESSION['login_attempts'] = 1;
+            }
+            if ($_SESSION['login_attempts'] > $max_attempts) {
+                echo '<script>alert("Bạn đã nhập sai mật khẩu quá 2 lần. Vui lòng thử lại sau 5 giây.");</script>';
+                // sleep(5000); 
+                $_SESSION['login_attempts'] = 0; 
+            } else {
+                if (isset($_POST['username'])) {
+                    $username = $_POST['username'];
+                }
+                if (isset($_POST['password'])) {
+                    $password = $_POST['password'];
+                }
+                if ($username == "" || $password == "") {
+                    $msg1 = "Tên đăng nhập hoặc mật khẩu không được để trống!";
                     $_SESSION['error'] = $msg1;
-                    // exit();
                 } else {
-                    $_SESSION['username'] =$user['username'];
-                    $_SESSION['email'] = $user['email'];
-                    $_SESSION['role'] = $user['role'];
-                    $_SESSION['user_id'] = $user['user_id'];
-                    header("Location: ./home");
-                    // exit();
+                    $user = $this->userModelConst->getuserinfo($username, $password);
+                    if ($user == false) {
+                        $msg1 = "Wrong username or password!";
+                        $_SESSION['error'] = $msg1;
+                        // exit();
+                    } else {
+                        $_SESSION['username'] = $user['username'];
+                        $_SESSION['email'] = $user['email'];
+                        $_SESSION['role'] = $user['role'];
+                        $_SESSION['user_id'] = $user['user_id'];
+                        header("Location: ./home");
+                        // exit();
+                    }
                 }
             }
         } else {
@@ -46,6 +96,8 @@ class user extends Controller {
             // header('Location: ./login');
         }
     }
+    
+
     function getall() {
         $listuser = $this->userModelConst->getalluser();
         $_SESSION['listuser'] = $listuser;

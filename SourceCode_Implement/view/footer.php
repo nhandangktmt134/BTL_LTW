@@ -36,8 +36,8 @@
 						<ul>
 							<li><a href="./home">Home</a></li>
 							<li><a href="./about">About</a></li>
-							<li><a href="services.html">Shop</a></li>
-							<li><a href="news.html">News</a></li>
+							<li><a href="./shop">Shop</a></li>
+							<li><a href="./news">News</a></li>
 							<li><a href="./contact">Contact</a></li>
 						</ul>
 					</div>
