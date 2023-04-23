@@ -6,7 +6,9 @@
     $sql = "SELECT * FROM tbl_sanpham WHERE sanpham_id  =" .$_GET["id"];
     $result = mysqli_query($conn,$sql);
     $product = mysqli_fetch_assoc($result);
-    var_dump($sql);
+    if($product['sanpham_gia']>$product['sanpham_giakm'] && $product['sanpham_giakm']!= '0') {
+		$price = $product['sanpham_giakm'];
+	}else $price = $product['sanpham_gia'];
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +23,6 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-5">
-
                     <div class="single-product-img">
                         <img src="<?php  echo $product['sanpham_img']?>" alt="">
                     </div>
@@ -29,84 +30,41 @@
                 <div class="col-md-7">
                     <div class="single-product-content">
                         <h3><?php echo $product['sanpham_name'];?></h3>
-                        <p class="single-product-pricing"><?php echo $product['sanpham_gia'];?> </p><span>Per/Kg</span>
+                        <div class="description">
+                               <?php 
+                                if($product['sanpham_giakm']!=0) echo "<h2> Sale: ".$product['sanpham_giakm']   ."</h2>";
+                               ?> 
+                        </div>
+                        <p class="single-product-pricing"><?php echo "<h5>".$product['sanpham_gia']."</h5>";?> </p><span>Per/Kg</span>
                         <p><?php echo $product['sanpham_mota'];?></p>
                         <div class="single-product-form">
-                            <form action="./">
-                                <input type="number" placeholder="0"><a> / <?php echo $product['sanpham_soluong'];?> Products</a>
-                            </form>
-                            <a href="./cart" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+                            <div> <h5> Số lượng: <?php echo $product['sanpham_soluong'];?> Products</h5></div>
+                            <br>
+                            <!-- <label for="Delivery Date">Delivery Date</label>
+                            <input id="Delivery Date" class="option datetime" name="option-Delivery Date" type="datetime-local" data-price="5.00" data-modifier="add"> -->
+                            <form action="./cart?id_sp=<?php echo $_GET['id']?>" method="post">
+                                <input type="number" name="quantity" value="1" min="1" max="<?=$product['sanpham_soluong']?>" placeholder="Quantity" required>
+                                <input type="hidden" name="product_img" value="<?php echo $product['sanpham_img']?>">
+                                <input type="hidden" name="product_name" value="<?php echo $product['sanpham_name']?>">
+                                <input type="hidden" name="product_gia" value="<?php echo $price?>">
+                                <input type="hidden" name="product_sl" value="<?php echo     $product['sanpham_soluong'];?>">
+                                <input type="submit" name="add_to_cart" value="Add To Cart">
+                            </form>                           
                             <p><strong>Categories: </strong><?php echo $product['category_id'];?></p>
                         </div>
                         <h4>Share:</h4>
                         <ul class="product-share">
-                            <li><a href=""><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href=""><i class="fab fa-twitter"></i></a></li>
-                            <li><a href=""><i class="fab fa-google-plus-g"></i></a></li>
-                            <li><a href=""><i class="fab fa-linkedin"></i></a></li>
+                            <li><a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="https://twitter.com/?lang=vi"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="https://www.google.com/"><i class="fab fa-google-plus-g"></i></a></li>
+                            <li><a href="https://www.instagram.com/"><i class="fab fa-linkedin"></i></a></li>
                         </ul>
-                        <!-- reviews --><div class="customer-rev left-side my-4">
-                            <h3 class="sear-head">Customer Review</h3>
-                            <ul class="w3layouts-box-list">
-                                <li>
-                                    <a href="#">
-                                        <span class="fa fa-star" aria-hidden="true"></span>
-                                        <span class="fa fa-star" aria-hidden="true"></span>
-                                        <span class="fa fa-star" aria-hidden="true"></span>
-                                        <span class="fa fa-star" aria-hidden="true"></span>
-                                        <span class="fa fa-star" aria-hidden="true"></span>
-                                        <span>5.0</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <span class="fa fa-star" aria-hidden="true"></span>
-                                        <span class="fa fa-star" aria-hidden="true"></span>
-                                        <span class="fa fa-star" aria-hidden="true"></span>
-                                        <span class="fa fa-star" aria-hidden="true"></span>
-                                        <span class="fa fa-star-o" aria-hidden="true"></span>
-                                        <span>4.0</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <span class="fa fa-star" aria-hidden="true"></span>
-                                        <span class="fa fa-star" aria-hidden="true"></span>
-                                        <span class="fa fa-star" aria-hidden="true"></span>
-                                        <span class="fa fa-star-half-o" aria-hidden="true"></span>
-                                        <span class="fa fa-star-o" aria-hidden="true"></span>
-                                        <span>3.5</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <span class="fa fa-star" aria-hidden="true"></span>
-                                        <span class="fa fa-star" aria-hidden="true"></span>
-                                        <span class="fa fa-star" aria-hidden="true"></span>
-                                        <span class="fa fa-star-o" aria-hidden="true"></span>
-                                        <span class="fa fa-star-o" aria-hidden="true"></span>
-                                        <span>3.0</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <span class="fa fa-star" aria-hidden="true"></span>
-                                        <span class="fa fa-star" aria-hidden="true"></span>
-                                        <span class="fa fa-star-half-o" aria-hidden="true"></span>
-                                        <span class="fa fa-star-o" aria-hidden="true"></span>
-                                        <span class="fa fa-star-o" aria-hidden="true"></span>
-                                        <span>2.5</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- reviews -->
                     </div>
                 </div>
             </div>
         </div>
         <div class="cmt">
-            <iframe src="./comment?id=<?php $_GET['id']?>" width="100%" height="400px" frameboder ="0"></iframe>
+            <iframe src="./comment?id=<?php echo $_GET['id']?>" width="100%" height="400px" frameboder ="0"></iframe>
         </div>
     </div> 
 <!-- end single product -->
