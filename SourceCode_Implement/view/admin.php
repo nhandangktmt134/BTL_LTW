@@ -1,9 +1,11 @@
 <?php
     require_once("controller/Usercontroller.php");
     require_once("controller/Productcontroller.php");
+    require_once("controller/Postcontroller.php");
 
     $userC = new user();
     $productC = new product();
+    $postC = new post();
 
     $category =  isset($_GET['act']) ? $_GET['act'] : 'user';
 ?>
@@ -36,6 +38,9 @@
                     break;
                 case 'product':
                     $productC->getall();
+                    break;
+                case 'post':
+                    $postC->getall();
                     break;
                 default:
                     # code...
