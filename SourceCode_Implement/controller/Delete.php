@@ -14,6 +14,11 @@
         $obj='sanpham';
         $sql="DELETE FROM tbl_" . $obj . " WHERE sanpham_id = " . $id . "  ";
     }
+
+    if($obj == 'post') {
+        $sql="DELETE FROM tbl_" . $obj . " WHERE id = " . $id . "  ";
+    }
+    
     if($obj == 'taodon') {
         $obj='taodon';
         $sql="DELETE FROM tbl_" . $obj . " WHERE id_spdon = " . $id . "  ";

@@ -42,7 +42,7 @@
             }
         }
 
-        function upload_file_products($file) {
+        function upload_file_products($file, $type) {
             if (isset($file["img"])) {
                 $allowedExts = array("jpg", "jpeg", "gif", "png");
                 $nameParts = explode(".", $file["img"]["name"]);
@@ -55,13 +55,18 @@
                     && in_array($extension, $allowedExts)
                 ) {
                     if ($file["img"]["error"] == 0) {
-                       if (!file_exists("./asset/img/products"))
-                            mkdir("./asset/img/products" , 0777 , 1);
-                        if (file_exists("./asset/img/products/". $file["img"]["name"])) {
-                            unlink("./asset/img/products/". $file["img"]["name"]);
+                        $path = "./asset/img/products/" . $file["img"]["name"]   ;
+                        $pathroot = "./asset/img/products/";
+                        if($type == 'update') {
+                            $path = "../asset/img/products/" . $file["img"]["name"]   ;
+                            $pathroot = "../asset/img/products/";
                         }
-
-                        move_uploaded_file($file["img"]["tmp_name"], "./asset/img/products/" . $file["img"]["name"]);
+                       if (!file_exists($pathroot))
+                            mkdir($pathroot , 0777 , 1);
+                        if (file_exists($pathroot. $file["img"]["name"])) {
+                            unlink($pathroot. $file["img"]["name"]);
+                        }
+                        move_uploaded_file($file["img"]["tmp_name"], $path);
                         $img_profile = "./asset/img/products/" . $file["img"]["name"];
                     }
                    
@@ -72,6 +77,40 @@
             }
         }
 
+        function upload_file_posts($file, $type) {
+            if (isset($file["img"])) {
+                $allowedExts = array("jpg", "jpeg", "gif", "png");
+                $nameParts = explode(".", $file["img"]["name"]);
+                $extension = end($nameParts);
+                if ((($file["img"]["type"] == "image/gif")
+                        || ($file["img"]["type"] == "image/jpeg")
+                        || ($file["img"]["type"] == "image/png")
+                        || ($file["img"]["type"] == "image/pjpeg"))
+                    && ($file["img"]["size"] < 5000000)
+                    && in_array($extension, $allowedExts)
+                ) {
+                    if ($file["img"]["error"] == 0) {
+                        $path = "./asset/img/posts/" . $file["img"]["name"]   ;
+                        $pathroot = "./asset/img/posts/";
+                        if($type == 'update') {
+                            $path = "../asset/img/posts/" . $file["img"]["name"]   ;
+                            $pathroot = "../asset/img/posts/";
+                        }
+                       if (!file_exists($pathroot))
+                            mkdir($pathroot , 0777 , 1);
+                        if (file_exists($pathroot. $file["img"]["name"])) {
+                            unlink($pathroot. $file["img"]["name"]);
+                        }
+                        move_uploaded_file($file["img"]["tmp_name"], $path);
+                        $img_profile = "./asset/img/posts/" . $file["img"]["name"];
+                    }
+                   
+                } else {
+                    $img_profile = "";
+                }
+            return $img_profile;
+            }
+        }
     }
 
 

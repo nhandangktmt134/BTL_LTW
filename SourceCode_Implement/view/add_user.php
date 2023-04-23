@@ -99,7 +99,7 @@
                 </div>
 
                 <div class="d-flex justify-content-end pt-3">
-				<a style="text-decoration: none;" href="<?php echo $_SERVER['HTTP_REFERER']; ?>" class="btn text-white btn-block btn-primary">Quay lại</a>
+				<a style="text-decoration: none;" href="<?php echo $_SERVER['HTTP_REFERER']; ?>" class="btn text-white btn-block btn-danger">Quay lại</a>
                   <button type="reset" class="btn btn-light btn-lg">Đặt lại</button>
                   <input type="submit" name="submit" value="Xác nhận " class="btn text-white btn-block btn-primary">
                 </div>

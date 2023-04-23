@@ -47,7 +47,7 @@ class product extends Controller {
                 $_SESSION['error'] = $msg;
             }
             else {
-                $img =  $this->functionCore->upload_file_products($_FILES);
+                $img =  $this->functionCore->upload_file_products($_FILES, "add");
                 $success = $this->productModelConst->insertproduct($category_id, $sanpham_name, $sanpham_chitiet, $sanpham_mota, $sanpham_gia, $sanpham_giakm, $sanpham_hot, 
                 $sanpham_soluong, $img);
 

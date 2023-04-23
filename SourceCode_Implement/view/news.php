@@ -1,18 +1,28 @@
 <?php
     $category_new =  isset($_GET['new']) ? $_GET['new'] : 'Tin tức';
+
+    $conn = mysqli_connect('localhost', 'root', '', 'nongsanstore');
+    if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
+    $sql = "SELECT * FROM tbl_post";
+    $result_posts = mysqli_query($conn, $sql);
+    mysqli_close($conn);
 ?>
+
 <!DOCTYPE html>
 <html lang="vi">
 <?php
     require_once("./view/header.php");
 ?>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="profile" href="https://gmpg.org/xfn/11">
     <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
 
-    <title>Kiến Thức Trồng trọt - Nông Sản Sạch</title>
+    <title><?php echo $category_new; ?></title>
     <meta name="description"
         content="Kiến Thức Trồng Trọt - Các bài viết chia sẻ kiến thức, kinh nghiệm cách trồng và chăm sóc các loại cây trồng, cây cảnh,hoa cảnh. Cách khắc phục sâu bệnh và bón phân sao cho hiệu quả" />
     <link rel="canonical" href="https://nongsansach.com/trong-trot/" />
@@ -27,7 +37,7 @@
     <meta name="twitter:card" content="summary_large_image" />
 
     <link href='https://fonts.gstatic.com' crossorigin rel='preconnect' />
-   
+
     <style type="text/css">
     img.wp-smiley,
     img.emoji {
@@ -42,7 +52,7 @@
         padding: 0 !important;
     }
     </style>
-  
+
     <style id='wp-block-library-theme-inline-css' type='text/css'>
     .wp-block-audio figcaption {
         color: #555;
@@ -703,9 +713,9 @@
     <meta name="generator" content="Powered by WPBakery Page Builder - drag and drop page builder for WordPress." />
     <meta name="generator"
         content="Powered by Slider Revolution 6.3.3 - responsive, Mobile-Friendly Slider Plugin for WordPress with comfortable drag and drop interface." />
-  
 
-   
+
+
     <style id="kirki-inline-styles">
     .page-title .title,
     .page-title-style {
@@ -1395,8 +1405,6 @@
         line-height: 1.5;
         font-size: 16px;
     }
-
-   
     </style><noscript>
         <style>
         .wpb_animate_when_almost_visible {
@@ -1529,16 +1537,16 @@
             </filter>
         </defs>
     </svg>
-   
+
     <div id="page" class="site">
         <div id="content" class="content">
             <div class="page-title">
                 <div class="container">
                     <h1 class="title">Danh mục: <span>
-                        <?php
+                            <?php
                            echo $category_new
                         ?>
-                    </span></h1>
+                        </span></h1>
                 </div>
             </div>
             <div class="breadcrumbs">
@@ -1554,45 +1562,38 @@
             <div class="container">
                 <div id="primary" class="content-area row">
                     <div class="col-md-9">
-                        <div id="post-4861"
-                            class="row blog-list-style post-4861 post type-post status-publish format-standard has-post-thumbnail hentry category-trong-trot tag-cach-trong-bap-cai tag-cach-trong-bap-cai-tai-nha tag-cach-trong-cai-bap tag-cach-trong-rau-bap-cai tag-ky-thuat-trong-bap-cai tag-trong-bap-cai">
-                            <div class="col-md-5">
-                                <div class="post-thumbnail">
-                                    <a href="./post">
-                                        <img width="330" height="240"
-                                            src="./asset/img/posts/post1.jpg"
-                                            class="attachment-insight-post-list size-insight-post-list wp-post-image"
-                                            alt="" decoding="async" /> </a>
+                        <?php foreach ($result_posts as $post): ?>
+                            <div id="post-4861"
+                                class="row blog-list-style post-4861 post type-post status-publish format-standard has-post-thumbnail hentry category-trong-trot tag-cach-trong-bap-cai tag-cach-trong-bap-cai-tai-nha tag-cach-trong-cai-bap tag-cach-trong-rau-bap-cai tag-ky-thuat-trong-bap-cai tag-trong-bap-cai">
+                                <div class="col-md-5">
+                                    <div class="post-thumbnail">
+                                            <img width="330" height="240" src="<?php echo $post['img'];?>"
+                                                class="attachment-insight-post-list size-insight-post-list wp-post-image"
+                                                alt="" decoding="async" />
+                                    </div>
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="entry-meta">
+                                        <span class="posted-on"><i class="ion-calendar"></i> <time
+                                                class="entry-date published" datetime="2022-01-09T01:00:44+08:00">9 Tháng
+                                                Một, 2022</time><time class="updated"
+                                                datetime="2022-02-27T20:21:30+08:00">27 Tháng Hai, 2022</time></span><span
+                                            class="comment"><i class="ion-chatbubble-working"></i> 0</span>
+                                    </div>
+                                        <h1 class="entry-title"><?php echo $post['title'];?></h1>
+                                    <div class="entry-content">
+                                    <?php echo $post['detail'];?> </div>
+                                   
                                 </div>
                             </div>
-                            <div class="col-md-7">
-                                <div class="entry-meta">
-                                    <span class="posted-on"><i class="ion-calendar"></i> <time
-                                            class="entry-date published" datetime="2022-01-09T01:00:44+08:00">9 Tháng
-                                            Một, 2022</time><time class="updated"
-                                            datetime="2022-02-27T20:21:30+08:00">27 Tháng Hai, 2022</time></span><span
-                                        class="comment"><i class="ion-chatbubble-working"></i> 0</span>
-                                </div>
-                                <a href="./post">
-                                    <h1 class="entry-title">Cách trồng rau Bắp Cải tại nhà từ A-Z cho bắp to đẹp ít sâu
-                                        bệnh</h1>
-                                </a>
-                                <div class="entry-content">
-                                    Ở miền Bắc và các vùng cao nguyên thích hợp để trồng bắp cải quanh năm, bởi vì những
-                                    nơi đó có khí hậu mát lạnh hoặc một mùa Đông Xuân. Mà loại cây này lại ưa sống ở nơi
-                                    nhiệt độ thấp, có khả năng chịu hạn rất tốt. Tuy nhiên, nếu trồng với... </div>
-                                <div class="entry-more">
-                                    <a href="./post">Read more</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="post-4870"
+                       
+                        <?php endforeach; ?>
+                        <!-- <div id="post-4870"
                             class="row blog-list-style post-4870 post type-post status-publish format-standard has-post-thumbnail hentry category-trong-trot tag-cach-lat-la-mai tag-lat-la-mai tag-lat-la-mai-no-dung-tet tag-lat-la-mai-no-tet">
                             <div class="col-md-5">
                                 <div class="post-thumbnail">
                                     <a href="./post">
-                                        <img width="330" height="240"
-                                            src="./asset/img/posts/post1.jpg"
+                                        <img width="330" height="240" src="./asset/img/posts/post1.jpg"
                                             class="attachment-insight-post-list size-insight-post-list wp-post-image"
                                             alt="" decoding="async" loading="lazy" /> </a>
                                 </div>
@@ -1623,8 +1624,7 @@
                             <div class="col-md-5">
                                 <div class="post-thumbnail">
                                     <a href="./post">
-                                        <img width="330" height="240"
-                                            src="./asset/img/posts/post1.jpg"
+                                        <img width="330" height="240" src="./asset/img/posts/post1.jpg"
                                             class="attachment-insight-post-list size-insight-post-list wp-post-image"
                                             alt="" decoding="async" loading="lazy" /> </a>
                                 </div>
@@ -1654,8 +1654,7 @@
                             <div class="col-md-5">
                                 <div class="post-thumbnail">
                                     <a href="./post">
-                                        <img width="330" height="240"
-                                            src="./asset/img/posts/post1.jpg"
+                                        <img width="330" height="240" src="./asset/img/posts/post1.jpg"
                                             class="attachment-insight-post-list size-insight-post-list wp-post-image"
                                             alt="" decoding="async" loading="lazy" /> </a>
                                 </div>
@@ -1679,10 +1678,10 @@
                                     <a href="./post">Read more</a>
                                 </div>
                             </div>
-                        </div>
-                       
+                        </div> -->
+
                     </div>
-                  
+
                 </div>
             </div>
         </div>

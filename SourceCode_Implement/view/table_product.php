@@ -34,7 +34,7 @@
         <tr>
            <td>
             <a class='btn btn-danger' id='delete-product' href='./controller/Delete.php?obj=product&id=<?php echo $product['sanpham_id']; ?>'>Xóa</a>
-            <Button class='btn btn-primary' >Sửa</Button>
+            <a class="btn btn-info" href="./update_product?id=<?php echo $product['sanpham_id'] ?>">Sửa</a>
            </td>
           <td><?php echo isset($product['sanpham_id']) ? $product['sanpham_id'] : "Chưa có"; ?></td>
           <td><?php echo isset($product['category_id']) ? $product['category_id'] : "Chưa có"; ?></td>
@@ -44,7 +44,9 @@
           <td><?php echo isset($product['sanpham_gia']) && $product['sanpham_gia'] ? $product['sanpham_gia'] : "Chưa có"; ?></td>
           <td><?php echo isset($product['sanpham_giakm']) && $product['sanpham_giakm'] ? $product['sanpham_giakm'] : "Chưa có"; ?></td>
           <td><?php echo isset($product['sanpham_soluong']) && $product['sanpham_soluong'] ? $product['sanpham_soluong'] : "Chưa có"; ?></td>
-          <td><?php echo isset($product['sanpham_img']) ? $product['sanpham_img'] : "Chưa có"; ?></td>
+          <td>
+            <img src="<?php echo isset($product['sanpham_img']) ? $product['sanpham_img'] : ""; ?>" alt="<?php $product['sanpham_img']; ?>">
+          </td>
         </tr>
         <?php endforeach; ?>
       </tbody>

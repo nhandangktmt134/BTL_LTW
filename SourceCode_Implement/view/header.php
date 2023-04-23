@@ -114,10 +114,13 @@
 												<span>{$_SESSION['username']}</span>
 												<i class='fa fa-user-circle'></i>
 											</a>
-											<ul class='sub-menu'>
-												<li>
+											<ul class='sub-menu'>";
+										if($_SESSION['role'] == 1) {
+											echo "<li>
 													<a href='./admin' style='text-decoration: none'>Trang quản lý</a>
-												</li>
+												</li>";
+										}
+										echo "
 												<li><a href='./controller/Logout.php' style='text-decoration: none'>Đăng xuất</a></li>
 											</ul>
 										</li>
