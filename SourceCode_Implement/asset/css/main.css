@@ -2744,3 +2744,35 @@ table.order-details tbody td {
   width: 100%;
 }
 
+
+
+form .button{
+  height: 45px;
+  margin: 15px 0
+}
+form .button input{
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: progress;
+  transition: all 0.1s ease;
+  background: linear-gradient(135deg, #71b7e6, #9b59b6);
+  /* background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 13%, rgba(8,7,104,1) 26%, rgba(0,212,255,1) 75%); */
+  /* background: rgb(238,174,202);
+  background: linear-gradient(90deg, rgba(238,174,202,1) 10%, rgba(148,219,233,1) 43%, rgba(199,154,231,0.743942645417542) 92%); */
+}
+form .button input:hover{
+  transform: scale(0.99); 
+  background: linear-gradient(-135deg, #71b7e6, #9b59b6); 
+  cursor: progress;
+ }
+@media(max-width: 584px){
+.container{
+ max-width: 100%;
+}
+}
