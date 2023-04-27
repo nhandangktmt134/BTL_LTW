@@ -27,6 +27,6 @@
 - **Start** Xampp control panel. Start the Apache and MySQL modules.
 - ![image](https://user-images.githubusercontent.com/47769063/137183880-f6cbc47f-58ac-407a-855a-c44cc2a15063.png)
 - **Open** [phpmyadmin](http://localhost:8080/phpmyadmin/server_databases.php) in browser and create a new database called `web222`.
-- **Go** to your cloned project directory. Import file `web222.sql` to the database.
+- **Go** to your cloned project directory. Import file `nongsanstore.sql` to the database.
 - **User view:** visit [http://localhost/BTL_LTW/](http://localhost/BTL_LTW/) to open the project.
 
