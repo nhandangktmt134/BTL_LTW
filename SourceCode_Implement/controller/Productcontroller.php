@@ -54,6 +54,8 @@ class product extends Controller {
                 if ($success == true) {
                     $_SESSION['msg'] = "Đăng kí thành công ! ";
                     $_SESSION['error'] = "";
+                    header("Location:./admin?act=product"); // Reload the Home page
+                    exit; // Terminate the script
                 } else {
                     $_SESSION['error'] = "Tên sản phẩm đã được sử dụng!";
                 }

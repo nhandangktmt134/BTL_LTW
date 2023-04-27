@@ -72,7 +72,8 @@ $img =isset($_POST['img-old']) ? $_POST['img-old'] : '' ;
         ";
     }
     
-    header('Location: '. $_SERVER['HTTP_REFERER']);
+   header('Location: '. $_SERVER['HTTP_REFERER']);
+
     
 
 

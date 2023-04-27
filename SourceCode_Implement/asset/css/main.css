@@ -2146,7 +2146,7 @@ a.video-play-btn {
 }
 
 .feature-bg:after {
-  background-image: url(../img/feature-bg.jpg);
+  background-image: url(../img/12\ Fall\ Vegetables\ You\ Should\ Know\ How\ to\ Cook.jpg);
   position: absolute;
   right: 0;
   top: 0;
@@ -2162,15 +2162,15 @@ a.video-play-btn {
 }
 
 .team-bg-1 {
-  background-image: url(../img/team/team-1.jpg);
+  background-image: url(../img/team/about_avt1.jpg);
 }
 
 .team-bg-2 {
-  background-image: url(../img/team/team-2.jpg);
+  background-image: url(../img/team/about_avt2.jpg);
 }
 
 .team-bg-3 {
-  background-image: url(../img/team/team-3.jpg);
+  background-image: url(../img/team/about_avt3.jpg);
 }
 
 .team-bg-4 {
@@ -2748,7 +2748,7 @@ table.order-details tbody td {
 
 form .button{
   height: 45px;
-  margin: 15px 0
+  margin: 15px 0;
 }
 form .button input{
   height: 100%;

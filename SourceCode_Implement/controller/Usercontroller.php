@@ -181,7 +181,8 @@ class user extends Controller {
             if ($firstName == "" || $lastName == "" || $email == "" || $phone == "" || $address =="") {
                 $msg = "Vui lòng điền đầy đủ thông tin!";
                 $_SESSION['update_profile'] = $msg;
-                header('Location: /bookstore/profile');
+                // http://localhost/BTL_LTW/SourceCode_Implement/profile
+                header('Location: SourceCode_Implement/profile');
             } else {
                 if ( $_FILES["img"]["error"] == 0){
                     $img = $this->upload_file_user($username, $_FILES);
@@ -195,13 +196,15 @@ class user extends Controller {
                 } else {
                     $msg = "Không cập nhật thành công";
                     $_SESSION['update_profile'] = $msg;
-                    header('Location: /bookstore/profile');
+                 //   header('Location: /bookstore/profile');
+                 header('Location: SourceCode_Implement/profile');
                     die;
                 }
             }
         } else {
             $_SESSION['update_profile'] = "";
-            header('Location: /bookstore/profile');        
+          //  header('Location: /bookstore/profile');     
+          header('Location: SourceCode_Implement/profile');   
         }
     }
 
@@ -219,19 +222,22 @@ class user extends Controller {
             if ($oldPassword == "" || $newPassword == "" || $confirmnewPassword == "") {
                 $msg = "Vui lòng điền đầy đủ";
                 $_SESSION['update_password'] = $msg;
-                header('Location: /bookstore/profile');
+              //  header('Location: /bookstore/profile');
+              header('Location: SourceCode_Implement/profile');
                 die;
             }
             else if (!password_verify($oldPassword, $_SESSION['password'])) {
                 $msg = "Mật khẩu cũ không chính xác";
                 $_SESSION['update_password'] = $msg;
-                header('Location: /bookstore/profile');
+              //  header('Location: /bookstore/profile');
+              header('Location: SourceCode_Implement/profile');
                 die;
             }
             else if ( $newPassword != $confirmnewPassword ) {
                 $msg = "Mật khẩu không giống nhau";
                 $_SESSION['update_password'] = $msg;
-                header('Location: /bookstore/profile');
+             //   header('Location: /bookstore/profile');
+             header('Location: SourceCode_Implement/profile');
                 die;
             } else {
                 $user = $this->model('UserModel');
@@ -240,18 +246,21 @@ class user extends Controller {
                 if ($success == true) {
                     $msg = "Thay đổi mật khẩu thành công";
                     $_SESSION['update_password'] = $msg;
-                    header('Location: /bookstore/profile');
+             //       header('Location: /bookstore/profile');
+             header('Location: SourceCode_Implement/profile');
                     die;
                 } else {
                     $msg = "Bị lỗi";
                     $_SESSION['update_password'] = $msg;
-                    header('Location: /bookstore/profile');
+                 //   header('Location: /bookstore/profile');
+                 header('Location: SourceCode_Implement/profile');
                     die;
                 }
             }
         } else {
             $_SESSION['update_password'] = "";
-            header('Location: /bookstore/profile');
+           // header('Location: /bookstore/profile');
+           header('Location: SourceCode_Implement/profile');
         }
     }
 
