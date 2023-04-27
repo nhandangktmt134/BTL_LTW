@@ -1583,7 +1583,7 @@
                                         <h1 class="entry-title"><?php echo $post['title'];?></h1>
                                     <div class="entry-content">
                                     <?php echo $post['detail'];?> </div>
-                                   
+                                    <a href="#">Read more</a>
                                 </div>
                             </div>
                        
