@@ -33,6 +33,9 @@
             <li class="nav-item">
                 <a class="nav-link " href="./admin?act=danhmuc">Danh mục sản phẩm</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link " href="./admin?act=contact">Danh sách liên hệ KH</a>
+            </li>
         </ul>
     </div>
     <div>
@@ -54,6 +57,9 @@
                 case 'danhmuc':
                     require_once("./view/danhmuc.php");
                     break;
+                case 'contact':
+                        require_once("./view/contact_ad.php");
+                        break;
                 default:
                     # code...
                     break;

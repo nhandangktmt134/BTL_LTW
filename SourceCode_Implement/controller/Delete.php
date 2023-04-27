@@ -22,6 +22,14 @@
         $obj='post';
         $sql="DELETE FROM tbl_" . $obj . " WHERE id = " . $id . "  ";
     }
+    if($obj == 'contact') {
+        $obj='contact';
+        $sql="DELETE FROM tbl_" . $obj . " WHERE id = " . $id . "  ";
+    }
+    if($obj == 'danhmuc') {
+        $obj='danhmuc';
+        $sql="DELETE FROM tbl_" . $obj . " WHERE id_danhmuc = " . $id . "  ";
+    }
     $result = mysqli_query($conn, $sql);
     header('Location: '. $_SERVER['HTTP_REFERER']);
 ?>  

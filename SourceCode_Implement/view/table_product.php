@@ -1,8 +1,6 @@
 <?php
 
     $list_product = isset($_SESSION['listproduct']) ?  $_SESSION['listproduct'] : [];
-
-
 ?>
 
 <!DOCTYPE html>

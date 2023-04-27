@@ -5,8 +5,6 @@
 
     $error = isset($_SESSION['error']) ? $_SESSION['error'] : "";
     $msg = isset($_SESSION['msg']) ? $_SESSION['msg'] : "";
-
-   
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -1,5 +1,5 @@
 <?php
-
+require_once 'model/categorymodel.php';
   $conn = mysqli_connect('localhost', 'root', '', 'nongsanstore');
   // Kiểm tra kết nối cơ sở dữ liệu
   if (mysqli_connect_errno()) {
@@ -16,7 +16,7 @@
   <div class="container-fluid">
     <table class="table table-hover">
       <h2>Danh mục sản phẩm</h2>
-      <a href="./add_user" class='btn btn-primary'>Thêm mới</a>
+      <a href="add_category" class='btn btn-primary'>Thêm mới</a>
       <thead>
         <tr>
           <th scope="col"></th>
@@ -26,9 +26,10 @@
         </tr>
       </thead>
       <tbody>
+        <!-- Vong lap trong php -->
         <?php foreach ($result  as $rows): ?>
         <tr>
-          <td><a class='btn btn-danger' id='delete-user' href='./controller/Delete.php?obj=user&id=<?php echo $user['user_id']; ?>'>Xóa</a>       </td>
+          <td><a class='btn btn-danger' href='./controller/Delete.php?obj=danhmuc&id=<?php echo $rows['id_danhmuc']; ?>'>Xóa</a>       </td>
           <td><?php  echo $stt; $stt= $stt+1;?></td>
           <td><?php echo $rows['name_danhmuc'];?></td>
         </tr>
