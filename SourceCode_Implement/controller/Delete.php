@@ -18,6 +18,10 @@
         $obj='taodon';
         $sql="DELETE FROM tbl_" . $obj . " WHERE id_spdon = " . $id . "  ";
     }
+    if($obj == 'post') {
+        $obj='post';
+        $sql="DELETE FROM tbl_" . $obj . " WHERE id = " . $id . "  ";
+    }
     $result = mysqli_query($conn, $sql);
     header('Location: '. $_SERVER['HTTP_REFERER']);
 ?>  
