@@ -1,8 +1,8 @@
 <?php
 $servername = "localhost";
-$username = "yourusername";
-$password = "yourpassword";
-$dbname = "yourdatabasename";
+$username = "root";
+$password = "";
+$dbname = "nongsanstore";
 
 // Tạo kết nối đến cơ sở dữ liệu
 $conn = mysqli_connect($servername, $username, $password, $dbname);
