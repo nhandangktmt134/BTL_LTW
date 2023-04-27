@@ -40,8 +40,6 @@ class post extends Controller {
                 if ($success == true) {
                     $_SESSION['msg'] = "Đăng kí thành công ! ";
                     $_SESSION['error'] = "";
-                    header("Location:./admin?act=post"); // Reload the Home page
-                    exit; // Terminate the script
                 } else {
                     $_SESSION['error'] = "Tên bài viết đã được sử dụng!";
                 }

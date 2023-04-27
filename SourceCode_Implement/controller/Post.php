@@ -5,4 +5,5 @@
             $this->view("post");
         }
     }
+
 ?>

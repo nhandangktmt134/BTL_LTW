@@ -4,6 +4,7 @@
    if (mysqli_connect_errno()) {
 	 die('Failed to connect to MySQL: ' . mysqli_connect_error());
    }   
+   
    // Lấy dữ liệu từ bảng tbl_taodon
    $sql_select = "SELECT * FROM tbl_taodon";
    $result = mysqli_query($conn, $sql_select);   
@@ -30,7 +31,6 @@
    $slcl =$_POST['product_sl']-$quantifiy;
    $sql = "UPDATE tbl_sanpham SET sanpham_soluong = $slcl WHERE sanpham_name = '$name_sp'";
    $result = mysqli_query($conn,$sql); 
-   $product = mysqli_fetch_assoc($result);   
    mysqli_close($conn);
 ?>
 

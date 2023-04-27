@@ -1,22 +1,40 @@
-<div class="main">
-    <h2> Danh Muc
-    <form action="" method="post">
-        <input type="text" name = "tendm" id ="">
-        <input type="submit" name = "themmoi" value="Them moi">
-    </form>
-    <br>
-    <table>
+<?php
+
+  $conn = mysqli_connect('localhost', 'root', '', 'nongsanstore');
+  // Kiểm tra kết nối cơ sở dữ liệu
+  if (mysqli_connect_errno()) {
+  die('Failed to connect to MySQL: ' . mysqli_connect_error());
+  }  
+  $stt =1; 
+  $sql = "SELECT * FROM tbl_danhmuc";
+  $result = mysqli_query($conn,$sql);
+
+?>
+<!DOCTYPE html>
+<html>
+  <body>
+  <div class="container-fluid">
+    <table class="table table-hover">
+      <h2>Danh mục sản phẩm</h2>
+      <a href="./add_user" class='btn btn-primary'>Thêm mới</a>
+      <thead>
         <tr>
-            <th>STT</th>
-            <th>Ten danh muc</th>
-            <th>Uu tien</th>
-            <th>Hanh dong</th>
+          <th scope="col"></th>
+          <th scope="col">STT</th>
+          <th scope="col">Danh muc</th>
+          <th scope="col">Sửa danh muc</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php foreach ($result  as $rows): ?>
         <tr>
-        <tr>
-            <th></th>
-            <th></th>
-            <th><a href="#"> Sua </a></th>
-            <th><a href="#"> Xoa </a></th>
-        <tr>
+          <td><a class='btn btn-danger' id='delete-user' href='./controller/Delete.php?obj=user&id=<?php echo $user['user_id']; ?>'>Xóa</a>       </td>
+          <td><?php  echo $stt; $stt= $stt+1;?></td>
+          <td><?php echo $rows['name_danhmuc'];?></td>
+        </tr>
+        <?php endforeach; ?>
+      </tbody>
     </table>
-</div>
+  </div>
+</body>
+</html>

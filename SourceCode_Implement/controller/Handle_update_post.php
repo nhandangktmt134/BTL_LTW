@@ -46,35 +46,21 @@ $img =isset($_POST['img-old']) ? $_POST['img-old'] : '' ;
     $stmt->execute();
 
     // check if the insert was successful
-    // if ($stmt->affected_rows > 0) {
-    //     echo "
-    //     <script type='text/javascript'>
-    //         alert('Bạn đã cập nhật thành công');
-    //     </script>
-
-    //     ";
-    // } else {
-    //     echo "
-    //     <script type='text/javascript'>
-    //         alert('Thất bại!');
-    //     </script>
-    //     ";
-    // }
     if ($stmt->affected_rows > 0) {
-        echo "<script>
-            window.onload = function() {
-                alert('Bạn đã cập nhật thành công');
-            }
-        </script>";
+        echo "
+        <script type='text/javascript'>
+            alert('Bạn đã cập nhật thành công');
+        </script>
+        ";
     } else {
-        echo "<script>
-            window.onload = function() {
-                alert('Thất bại!');
-            }
-        </script>";
+        echo "
+        <script type='text/javascript'>
+            alert('Thất bại!');
+        </script>
+        ";
     }
+    
     header('Location: '. $_SERVER['HTTP_REFERER']);
-
     
 
 

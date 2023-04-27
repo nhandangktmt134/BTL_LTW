@@ -27,6 +27,12 @@
             <li class="nav-item">
                 <a class="nav-link " href="./admin?act=post">QL bài viết</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link " href="./admin?act=donhang">QL đơn hàng</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " href="./admin?act=danhmuc">Danh mục sản phẩm</a>
+            </li>
         </ul>
     </div>
     <div>
@@ -41,6 +47,12 @@
                     break;
                 case 'post':
                     $postC->getall();
+                    break;
+                case 'donhang':
+                    require_once("./view/tabledh.php");
+                    break;
+                case 'danhmuc':
+                    require_once("./view/danhmuc.php");
                     break;
                 default:
                     # code...

@@ -6,6 +6,7 @@
     $sql = "SELECT * FROM tbl_sanpham WHERE sanpham_id  =" .$_GET["id"];
     $result = mysqli_query($conn,$sql);
     $product = mysqli_fetch_assoc($result);
+    $id_sp = $_GET["id"];
     if($product['sanpham_gia']>$product['sanpham_giakm'] && $product['sanpham_giakm']!= '0') {
 		$price = $product['sanpham_giakm'];
 	}else $price = $product['sanpham_gia'];
@@ -42,7 +43,7 @@
                             <br>
                             <!-- <label for="Delivery Date">Delivery Date</label>
                             <input id="Delivery Date" class="option datetime" name="option-Delivery Date" type="datetime-local" data-price="5.00" data-modifier="add"> -->
-                            <form action="./cart?id_sp=<?php echo $_GET['id']?>" method="post">
+                            <form action="<?php if(isset($_SESSION['username'])) {echo "./cart?id_sp=<?php echo $id_sp?>";} else {echo "./login";}?>" method="post">
                                 <input type="number" name="quantity" value="1" min="1" max="<?=$product['sanpham_soluong']?>" placeholder="Quantity" required>
                                 <input type="hidden" name="product_img" value="<?php echo $product['sanpham_img']?>">
                                 <input type="hidden" name="product_name" value="<?php echo $product['sanpham_name']?>">
@@ -64,7 +65,7 @@
             </div>
         </div>
         <div class="cmt">
-            <iframe src="./comment?id=<?php echo $_GET['id']?>" width="100%" height="400px" frameboder ="0"></iframe>
+            <iframe src="./comment?id_sp=<?php echo $_GET['id']?>" width="100%" height="400px" frameboder ="0"></iframe>
         </div>
     </div> 
 <!-- end single product -->

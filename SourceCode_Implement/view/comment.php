@@ -1,27 +1,12 @@
 <?php
-    $id_spcheck = $_GET['id'];
+    $id_spcheck = $_GET['id_sp'];
     $conn = mysqli_connect('localhost', 'root', '', 'nongsanstore');
-    include "./model/comment.php";
     if (!$conn) {
         die("Connection failed: " . mysqli_connect_error());
     }
     $sql = "SELECT * FROM tbl_binhluan";
     $result = mysqli_query($conn,$sql);
-    //if (isset($_SESSION['$id'])&&($_SESSION['$id']>0)){
-        if (isset($_SESSION['$id_user'])&&($_SESSION['$id_user']!="")){
-            $name = $_SESSION['$name'];
-            $id_sp = $_POST['id_sp'];
-        }else{
-            $name ="Đăng nhập với tư cách khách";
-        }
-        if (isset($_POST['comment'])){
-            $name = $_POST['name'];
-            $id_sp = $_POST['id_sp'];
-            $id_user = $_POST['id_user'];
-            $noidung = $_POST['noidung'];
-            thembl($name,$id_user,$idsp,$noidung);
-        }
-        $dsbl = showbl();
+
 ?>
 <!DOCTYPE html>
 <html lang="vn">
@@ -87,33 +72,21 @@
             <h2>Bình Luận</h2>
         </div>
         <div class="container md-500 cd-500 ">
-        <form  action="comment.php" method="post">
+        <form  action="./comment" method="post">
             <div>            
                 <a type="text" name = "name" placeholder=""><?php echo $name ;?> </a>
             </div>
             <div>
-                <input type="hidden" name = "id_sp" value="<?php $_GET["id"]; ?>" >
+                <input type="hidden" name = "id_sp" value="<?php echo $_GET["id"]; ?>" >
             </div>
             <div>
-                <!-- <input type="hidden" name="id_user" value="<?php $_GET["id_user"]; ?>"> -->
+                <input type="hidden" name="id_user" value="<?php $_SESSION['username']; ?>">
             </div>
             <div>
                 <textarea name = "noidung" placeholder="" id="" cols="50" rows="2"></textarea>
             </div>
-            <div class="stars">
-                <input class="star star-1" id="star-1" type="radio" name="star"/>
-                <label class="star star-1" for="star-1"></label>
-                <input class="star star-2" id="star-2" type="radio" name="star"/>
-                <label class="star star-2" for="star-2"></label>
-                <input class="star star-3" id="star-3" type="radio" name="star"/>
-                <label class="star star-3" for="star-3"></label>
-                <input class="star star-4" id="star-4" type="radio" name="star"/>
-                <label class="star star-4" for="star-4"></label>
-                <input class="star star-5" id="star-5" type="radio" name="star"/>
-                <label class="star star-5" for="star-5"></label>         
-            </div>
             <div>
-                <input type="button" name = "commment" value="Commment">
+                <input type="submit" name = "commment" value="Commment">
             </div>
         </form>
         </div>

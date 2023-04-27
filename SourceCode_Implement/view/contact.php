@@ -75,18 +75,18 @@
                     </div>
                     <!-- <div id="form_status"></div> -->
                     <div class="contact-form">
-                        <form id="submit" action="#">
+                        <form id="submit" action="#" onsubmit="reset();">
                             <p>
                                 <input type="text" placeholder="Name" name="name" id="name">
-                                <input type="text" placeholder="Email" name="email" id="email">
+                                <input type="email" placeholder="Email" name="email" id="email">
                             </p>
                             <p>
-                                <input type="text" placeholder="Phone" name="phone" id="phone">
+                                <input type="tel" placeholder="Phone" name="phone" id="phone">
                                 <input type="text" placeholder="Subject" name="subject" id="subject">
                             </p>
                             <p>
-                                <input type="text" placeholder="Address" name="address" id="address">
-                                <input class="form-control" type="datetime-local" placeholder="Select Datetime Free" id="datetime">
+                                <input type="text" placeholder="Address" name="subject" id="address">
+                                <input class="form-control" type="datetime-local" placeholder="Select Datetime" id="datetime">
                             </p>
                             <p><textarea name="message" id="message" cols="30" rows="10" placeholder="How can we help you?"></textarea></p>
                             <!-- <br> -->
@@ -105,10 +105,7 @@
                                     );
                                 </script>
                             </p>
-                            <p><input type="submit" value="Submit" style="width: 100%; height: 100%;"></p>
-                            <div class="button">
-                                <input type="reset" value="Reset">
-                            </div>
+                            <p><input type="submit" value="Submit"></p>
                         </form>
                     </div>
                     <!-- Script to send a data of form to admin's email -->
@@ -117,7 +114,7 @@
                     <div class="contact-form-wrap">
                         <div class="contact-form-box">
                             <h4><i class="fas fa-map"></i> Shop Address</h4>
-                            <p>237, Lý Thường Kiệt <br> Quận 10 <br> TP. Hồ Chí Minh</p>
+                            <p>34/8, East Hukupara <br> Gifirtok, Sadan. <br> Country Name</p>
                         </div>
                         <div class="contact-form-box">
                             <h4><i class="far fa-clock"></i> Shop Hours</h4>
@@ -125,7 +122,7 @@
                         </div>
                         <div class="contact-form-box">
                             <h4><i class="fas fa-address-book"></i> Contact</h4>
-                            <p>Phone: +84 913840652<br> Email: support@nongsansach.com</p>
+                            <p>Phone: +00 111 222 3333 <br> Email: support@fruitkha.com</p>
                         </div>
                     </div>
                 </div>
@@ -133,20 +130,19 @@
         </div>
     </div>
     <!-- end contact form -->
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script> 
     <script>
         const submit = document.getElementById('submit');
         submit.addEventListener('submit', (e) => {
             e.preventDefault();
             console.log("Clicked");
-            console.log(document.getElementById('email'));
 
 
             Email.send({
                 SecureToken: "dc53ad6b-14ef-4b4f-873b-8208b506a78c", //add your token here
                 To: document.getElementById('email').value, // receive
-                From: "bangbang2002zingmepoki@gmail.com", // send
-                Subject: "Nông sản sạch",
+                From: "bangbang2002zingmepoki@gmail.com",  // send
+                Subject:"Nông sản sạch",
                 Body: "We received your message, we will contact you soon!"
             });
 
@@ -154,94 +150,17 @@
             Email.send({
                 SecureToken: "dc53ad6b-14ef-4b4f-873b-8208b506a78c", //add your token here
                 To: "bangbang2002zingmepoki@gmail.com", // receive
-                From: "bangbang2002zingmepoki@gmail.com", // send
-                Subject: document.getElementById('subject').value + ' Email Customer: ' + document.getElementById('email').value,
-                Body: 'Address of customer is: ' + document.getElementById('address').value + '<br>' +
-                    'Time free is: ' + document.getElementById('datetime').value + '<br>' +
-                    document.getElementById('message').value
-            }).then(function() {
-                alert('We received your message, we will contact you soon!');
-            });
+                From: "bangbang2002zingmepoki@gmail.com",  // send
+                Subject:document.getElementById('subject').value +' '+'Email Customer: ' + document.getElementById('email').value,
+                Body: 'Address of customer is: '+ document.getElementById('address').value+'\n'+'Time free is:'+ document.getElementById('datetime')+'\n'+
+                document.getElementById('message'),
+            }).then(
+                // message => alert(message)
+                alert('We received your message, we will contact you sonn!')
+            );
 
         });
-    </script>
-
-    <script>
-        function CheckErrorForFrom() {
-
-            let alert1 = "";
-            let alert2 = "";
-            let alert3 = "";
-            let alert4 = "";
-            let alert5 = "";
-            let alert6 = "";
-            let alert7 = "";
-            let alert8 = "";
-            // let alert9 = "";
-            // let alert10 = "";
-            // let alert11 = "";
-
-
-            let firstname = document.getElementById("name").value;
-            if (firstname.length < 2 || firstname.length > 30) {
-                alert1 = "First name: You must enter from 2 to 30 characters!";
-                // return false;
-            }
-
-            let subject = document.getElementById("subject").value;
-            if (subject == "") {
-                alert2 = "Country: Please select your area!";
-                // return false;
-            }
-
-            let address = document.getElementById("address").value;
-            if (address == "") {
-                alert3 = "Country: Please select your address!";
-                // return false;
-            }
-
-            let phone = document.getElementById("phone").value;
-            if (phone == "") {
-                alert4 = "Country: Please input your phone number!";
-                // return false;
-            }
-
-            let about = document.getElementById("message").value;
-            let length_string = about.length;
-            if (about == "") {
-                alert5 = "If you have nothing to write, write 'NO' ";
-                // return false;
-            }
-            if (length_string > 10000) {
-                alert6 = "Can't exceed 10000 characters";
-                // return false;
-            }
-
-            let email = document.getElementById("email").value;
-            if (email.length <= 1) {
-                alert7 = "Email: Please enter your email has lenght greater 5 characters and follow format email of form!";
-                // return false;
-            }
-            let email_length = email.length;
-            let flag_1 = 0;
-            let flag_2 = 0;
-            let count = 0;
-            for (let i = 0; i < email_length; i++) {
-                if (email[i] == '@' && i > 0) {
-                    count = count + 1;
-                    flag_1 = 1;
-                }
-                if (flag_1 == 1 && count == 1 && email[i] == '.' && i < email_length) {
-                    flag_2 = 1;
-                }
-            }
-            if (flag_1 == 0 || flag_2 == 0) {
-                alert8 = "Email: Invalid, Please re-enter your email.";
-                // return false;
-            }
-            return false;
-        }
-    </script>
+    </script> 
 
     <!-- find our location -->
     <div class="find-location blue-bg">

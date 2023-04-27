@@ -8,87 +8,37 @@ class user extends Controller {
         $this->userModelConst = new UserModel();
         $this->functionCore = new Controller();
     }
-    // function login()
-    // {
-    //     $username = "";
-    //     $password = "";
-    //     $success = false;
-    //     $msg1 = "";
-    //     if (isset($_POST['submit'])) {
-           
-    //         if (isset($_POST['username'])) {
-    //             $username = $_POST['username'];
-    //         }
-    //         if (isset($_POST['password'])) {
-    //             $password = $_POST['password'];
-    //         }
-    //         if ($username == "" || $password == "") {
-    //             $msg1 = "Tên đăng nhập hoặc mật khẩu không được để trống!";
-    //             $_SESSION['error'] = $msg1;
-    //         } else {
-    //             $user = $this->userModelConst->getuserinfo($username, $password);
-    //             print_r($user);
-    //             if ($user == false) {
-    //                 $msg1 = "Wrong username or password!";
-    //                 $_SESSION['error'] = $msg1;
-    //                 // exit();
-    //             } else {
-    //                 $_SESSION['username'] =$user['username'];
-    //                 $_SESSION['email'] = $user['email'];
-    //                 $_SESSION['role'] = $user['role'];
-    //                 $_SESSION['user_id'] = $user['user_id'];
-    //                 header("Location: ./home");
-    //                 // exit();
-    //             }
-    //         }
-    //     } else {
-    //         $_SESSION['error'] = $msg1;
-    //         // header('Location: ./login');
-    //     }
-    // }
-
-
     function login()
     {
         $username = "";
         $password = "";
         $success = false;
         $msg1 = "";
-        $max_attempts = 2; // maximum number of login attempts
         if (isset($_POST['submit'])) {
-            if (isset($_SESSION['login_attempts'])) {
-                $_SESSION['login_attempts']++;
-            } else {
-                $_SESSION['login_attempts'] = 1;
+           
+            if (isset($_POST['username'])) {
+                $username = $_POST['username'];
             }
-            if ($_SESSION['login_attempts'] > $max_attempts) {
-                echo '<script>alert("Bạn đã nhập sai mật khẩu quá 2 lần. Vui lòng thử lại sau 5 giây.");</script>';
-                // sleep(5000); 
-                $_SESSION['login_attempts'] = 0; 
+            if (isset($_POST['password'])) {
+                $password = $_POST['password'];
+            }
+            if ($username == "" || $password == "") {
+                $msg1 = "Tên đăng nhập hoặc mật khẩu không được để trống!";
+                $_SESSION['error'] = $msg1;
             } else {
-                if (isset($_POST['username'])) {
-                    $username = $_POST['username'];
-                }
-                if (isset($_POST['password'])) {
-                    $password = $_POST['password'];
-                }
-                if ($username == "" || $password == "") {
-                    $msg1 = "Tên đăng nhập hoặc mật khẩu không được để trống!";
+                $user = $this->userModelConst->getuserinfo($username, $password);
+                print_r($user);
+                if ($user == false) {
+                    $msg1 = "Wrong username or password!";
                     $_SESSION['error'] = $msg1;
+                    // exit();
                 } else {
-                    $user = $this->userModelConst->getuserinfo($username, $password);
-                    if ($user == false) {
-                        $msg1 = "Wrong username or password!";
-                        $_SESSION['error'] = $msg1;
-                        // exit();
-                    } else {
-                        $_SESSION['username'] = $user['username'];
-                        $_SESSION['email'] = $user['email'];
-                        $_SESSION['role'] = $user['role'];
-                        $_SESSION['user_id'] = $user['user_id'];
-                        header("Location: ./home");
-                        // exit();
-                    }
+                    $_SESSION['username'] =$user['username'];
+                    $_SESSION['email'] = $user['email'];
+                    $_SESSION['role'] = $user['role'];
+                    $_SESSION['user_id'] = $user['user_id'];
+                    header("Location: ./home");
+                    // exit();
                 }
             }
         } else {
@@ -96,8 +46,6 @@ class user extends Controller {
             // header('Location: ./login');
         }
     }
-    
-
     function getall() {
         $listuser = $this->userModelConst->getalluser();
         $_SESSION['listuser'] = $listuser;
@@ -181,8 +129,7 @@ class user extends Controller {
             if ($firstName == "" || $lastName == "" || $email == "" || $phone == "" || $address =="") {
                 $msg = "Vui lòng điền đầy đủ thông tin!";
                 $_SESSION['update_profile'] = $msg;
-                // http://localhost/BTL_LTW/SourceCode_Implement/profile
-                header('Location: SourceCode_Implement/profile');
+                header('Location: /bookstore/profile');
             } else {
                 if ( $_FILES["img"]["error"] == 0){
                     $img = $this->upload_file_user($username, $_FILES);
@@ -196,15 +143,13 @@ class user extends Controller {
                 } else {
                     $msg = "Không cập nhật thành công";
                     $_SESSION['update_profile'] = $msg;
-                 //   header('Location: /bookstore/profile');
-                 header('Location: SourceCode_Implement/profile');
+                    header('Location: /bookstore/profile');
                     die;
                 }
             }
         } else {
             $_SESSION['update_profile'] = "";
-          //  header('Location: /bookstore/profile');     
-          header('Location: SourceCode_Implement/profile');   
+            header('Location: /bookstore/profile');        
         }
     }
 
@@ -222,22 +167,19 @@ class user extends Controller {
             if ($oldPassword == "" || $newPassword == "" || $confirmnewPassword == "") {
                 $msg = "Vui lòng điền đầy đủ";
                 $_SESSION['update_password'] = $msg;
-              //  header('Location: /bookstore/profile');
-              header('Location: SourceCode_Implement/profile');
+                header('Location: /bookstore/profile');
                 die;
             }
             else if (!password_verify($oldPassword, $_SESSION['password'])) {
                 $msg = "Mật khẩu cũ không chính xác";
                 $_SESSION['update_password'] = $msg;
-              //  header('Location: /bookstore/profile');
-              header('Location: SourceCode_Implement/profile');
+                header('Location: /bookstore/profile');
                 die;
             }
             else if ( $newPassword != $confirmnewPassword ) {
                 $msg = "Mật khẩu không giống nhau";
                 $_SESSION['update_password'] = $msg;
-             //   header('Location: /bookstore/profile');
-             header('Location: SourceCode_Implement/profile');
+                header('Location: /bookstore/profile');
                 die;
             } else {
                 $user = $this->model('UserModel');
@@ -246,21 +188,18 @@ class user extends Controller {
                 if ($success == true) {
                     $msg = "Thay đổi mật khẩu thành công";
                     $_SESSION['update_password'] = $msg;
-             //       header('Location: /bookstore/profile');
-             header('Location: SourceCode_Implement/profile');
+                    header('Location: /bookstore/profile');
                     die;
                 } else {
                     $msg = "Bị lỗi";
                     $_SESSION['update_password'] = $msg;
-                 //   header('Location: /bookstore/profile');
-                 header('Location: SourceCode_Implement/profile');
+                    header('Location: /bookstore/profile');
                     die;
                 }
             }
         } else {
             $_SESSION['update_password'] = "";
-           // header('Location: /bookstore/profile');
-           header('Location: SourceCode_Implement/profile');
+            header('Location: /bookstore/profile');
         }
     }
 

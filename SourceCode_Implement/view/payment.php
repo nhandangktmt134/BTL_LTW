@@ -5,7 +5,7 @@
 	 die('Failed to connect to MySQL: ' . mysqli_connect_error());
    }   
 //    // Lấy dữ liệu từ bảng tbl_taodon
-   $sum =0 ;
+   $sum =0 ; $stt = 1;
    $sql = "SELECT * FROM tbl_taodon";
    $result = mysqli_query($conn,$sql);
 //    $rows = mysqli_fetch_assoc($result);
@@ -25,8 +25,8 @@
 						<table class="cart-table">
 							<thead class="cart-table-head">
 								<tr class="table-head-row">
-                                    <th class="product-remove">Đơn</th>
 									<th class="product-remove"></th>
+									<th class="product-remove">STT</th>
 									<th class="product-image">Product Image</th>
 									<th class="product-name">Name</th>
 									<th class="product-price">Price</th>
@@ -37,8 +37,8 @@
 							<tbody>
 								<?php foreach ($result as $rows): ?> 
 								<tr class="table-body-row">
-								<td class="product"><?php  echo $rows['id_spdon'];?></td>
 								<td class="product-remove" id='delete-user'><a href='./controller/Delete.php?obj=taodon&id=<?php echo $rows['id_spdon'];?>'><i class="far fa-window-close"></i></a></td>
+								<td class="product"><?php  echo $stt; $stt ++;?></td>
 								<td class="product-image"><img src="<?php echo $rows['sanpham_img']?>" alt=""></td>
 								<td class="product-name"><?php echo $rows['name_sp'];?></td>
 								<td class="product-price"><?php  echo $rows['price'];?></td>
@@ -62,23 +62,27 @@
 							<tbody>
 								<tr class="total-data">
 									<td><strong>Subtotal: </strong></td>
-									<td><?php  echo  $sum;?></td>
+									<td><?php  echo  $sum;?> VND</td>
 								</tr>
 								<tr class="total-data">
 									<td><strong>Shipping: </strong></td>
-									<td><?php  echo  $sum*5/100;?></td>
+									<td><?php  echo  $sum*5/100;?> VND</td>
 								</tr>
 								<tr class="total-data">
 									<td><strong>Total: </strong></td>
-									<td><?php  echo  $sum*95/100;?></td>
+									<td><?php  echo  $sum*95/100;?> VND</td>
 								</tr>
 							</tbody>
 						</table>
 						<div class="cart-buttons">
-							<a href="./payment" 	class="boxed-btn">Update Cart</a>
-							<a href="./checkout" 	class="boxed-btn black">Payment</a>
+							<a href="./payment" 	class="boxed-btn">Update Cart</a>							
 							<a href="./shop" 		class="boxed-btn black">Back</a>
 						</div>
+						<br>
+						<form action="./checkout" method="post"class="boxed-btn">
+                                <input type="hidden" name="pay_sum" value="<?php echo $sum;?>">
+								<input type="submit" name="Payment" value="Payment">
+                        </form> 
 					</div>
 				</div>
 			</div>
