@@ -86,7 +86,7 @@
                             </p>
                             <p>
                                 <input type="text" placeholder="Address" name="address" id="address">
-                                <input class="form-control" type="datetime-local" placeholder="Select Datetime Free" id="datetime" name="date">
+                                <input class="form-control" type="datetime-local" placeholder="Select Datetime Free" id="datetime" name="date_free">
                             </p>
                             <p><textarea name="message" id="message" cols="30" rows="10" placeholder="How can we help you?"></textarea></p>
                             <!-- <br> -->

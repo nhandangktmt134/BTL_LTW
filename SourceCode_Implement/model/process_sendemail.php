@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $phone = test_input($_POST["phone"]);
     $subject = test_input($_POST["subject"]);
     $address = test_input($_POST["address"]);
-    $date = test_input($_POST["date"]);
+    $date = test_input($_POST["date_free"]);
     $message = test_input($_POST["message"]);
 
     // Kết nối đến database
@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Thực hiện truy vấn để chèn dữ liệu vào bảng tbl_contact
-    $sql = "INSERT INTO tbl_contact (`name`, `email`, `phone`, `subject`, `address`, `date`, `message`)
+    $sql = "INSERT INTO tbl_contact (`name`, `email`, `phone`, `subject`, `address`, `date_free`, `message`)
   VALUES ('$name', '$email', '$phone', '$subject', '$address', '$date', '$message')";
 
     if (mysqli_query($conn, $sql)) {
