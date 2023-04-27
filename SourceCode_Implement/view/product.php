@@ -48,7 +48,8 @@
                     <input type="hidden" name="product_name" value="<?php echo $row['sanpham_name']?>">
                     <input type="hidden" name="product_gia" value="<?php echo $price?>">
                     <input type="hidden" name="product_sl" value="<?php echo     $product['sanpham_soluong'];?>">
-                    <input type="submit" name="add_to_cart" value="Add To Cart">
+                    <a href="<?php if(isset($_SESSION['username'])) {echo "./cart";} else {echo "./login";} ?>" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+                <!-- <input type="submit" name="add_to_cart" value="Miền Tây"> -->
                 </form>
         </div>
     </div>
