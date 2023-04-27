@@ -127,8 +127,8 @@ mysqli_close($conn);
 												</li>";
 									}
 									if ($_SESSION['role'] == 0) {
-										echo "	<li><a href='./admin' style='text-decoration: none'>Xem thông tin cá nhân</a></li>
-												<li><a href='./admin' style='text-decoration: none'>Chỉnh sửa thông tin cá nhân</a></li>
+										echo "	<li><a href='./infoprofile' style='text-decoration: none'>Xem thông tin cá nhân</a></li>
+												<li><a href='./profile' style='text-decoration: none'>Chỉnh sửa thông tin cá nhân</a></li>
 												<li><a href='./dhkh' style='text-decoration: none'>Thông tin đơn hàng</a></li>";
 									}
 
