@@ -105,7 +105,7 @@
                                     );
                                 </script>
                             </p>
-                            <p><input type="submit" value="Submit"></p>
+                            <p><input type="submit" value="Submit" style="width: 100%; height: 100%;"></p>
                             <div class="button">
                                 <input type="reset" value="Reset">
                             </div>
@@ -117,7 +117,7 @@
                     <div class="contact-form-wrap">
                         <div class="contact-form-box">
                             <h4><i class="fas fa-map"></i> Shop Address</h4>
-                            <p>34/8, East Hukupara <br> Gifirtok, Sadan. <br> Country Name</p>
+                            <p>237, Lý Thường Kiệt <br> Quận 10 <br> TP. Hồ Chí Minh</p>
                         </div>
                         <div class="contact-form-box">
                             <h4><i class="far fa-clock"></i> Shop Hours</h4>
@@ -125,7 +125,7 @@
                         </div>
                         <div class="contact-form-box">
                             <h4><i class="fas fa-address-book"></i> Contact</h4>
-                            <p>Phone: +00 111 222 3333 <br> Email: support@fruitkha.com</p>
+                            <p>Phone: +84 913840652<br> Email: support@nongsansach.com</p>
                         </div>
                     </div>
                 </div>
