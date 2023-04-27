@@ -4,13 +4,14 @@
    if (mysqli_connect_errno()) {
 	 die('Failed to connect to MySQL: ' . mysqli_connect_error());
    }   
+   $time = date_default_timezone_set('Asia/Ho_Chi_Minh');
    $user =  $_POST['user'];
    $name = $_POST['name_donhang'];
    $phone = $_POST['phone_donhang'];
    $add = $_POST['address_donhang'];
    $ppprice = $_POST['payment_method'];
    // Lấy thời gian hiện tại
-    $time = time();
+    //$time = time();
    // Tạo đối tượng DateTime từ giá trị Unix timestamp của biến $time
    $datetime = DateTime::createFromFormat('U', $time);
    // Chuyển đổi đối tượng DateTime thành chuỗi định dạng datetime
@@ -27,10 +28,10 @@
                 $sql = "SELECT * FROM  tbl_taodon";                 
                 $result=mysqli_query($conn, $sql); 
                 foreach ($result as $rows): 
-                        $sql_insert1 = "INSERT INTO `tbl_donhangkh`(`id_don`, `name_user`, `name_kh`, `sanpham_name`, `price_sp`, `quantify`, `total`, `datetime_in`, `address_in`)  VALUES (NULL, '$user', '','{$rows['name_sp']}', '{$rows['price']}', '{$rows['quantifiy']}', '{$rows['total']}', '$datetime_str','')";
+                        $sql_insert1 = "INSERT INTO `tbl_donhangkh`(`id_don`, `name_user`, `name_kh`, `sanpham_name`, `price_sp`, `quantify`, `total`, `datetime_in`, `address_in`)  VALUES (NULL, '$user', '','{$rows['name_sp']}', '{$rows['price']}', '{$rows['quantifiy']}', '{$rows['total']}', '$datetime_str','$add')";
                         mysqli_query($conn, $sql_insert1);
                 endforeach;  
-                $sql_insert1 = "INSERT INTO `tbl_donhangkh`(`id_don`, `name_user`, `name_kh`, `sanpham_name`, `price_sp`, `quantify`, `total`, `datetime_in`, `address_in`)  VALUES (NULL, '$user', '','Tổng đơn hàng', '', '', '$sum', '$datetime_str','')";
+                $sql_insert1 = "INSERT INTO `tbl_donhangkh`(`id_don`, `name_user`, `name_kh`, `sanpham_name`, `price_sp`, `quantify`, `total`, `datetime_in`, `address_in`)  VALUES (NULL, '$user', '--------------','Tổng đơn hàng', '---', '---', '$sum', '$datetime_str','$add')";
                 mysqli_query($conn, $sql_insert1);
 
     ///deredledkferaguerfih D    

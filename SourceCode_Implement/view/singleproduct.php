@@ -64,9 +64,9 @@
                 </div>
             </div>
         </div>
-        <div class="cmt">
+        <!-- <div class="cmt">
             <iframe src="./comment?id_sp=<?php echo $_GET['id']?>" width="100%" height="400px" frameboder ="0"></iframe>
-        </div>
+        </div> -->
     </div> 
 <!-- end single product -->
 
