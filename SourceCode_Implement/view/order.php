@@ -23,7 +23,7 @@
     $sql_insert = "INSERT INTO tbl_tddonhang (name_cus, date_dh, total,	address_in,pprice,phone_in) VALUES ('$name','$datetime_str', '$sum','$add', '$ppprice', '$phone')";  
     mysqli_query($conn, $sql_insert); 
 
-                $sql_insert2 = "INSERT INTO `tbl_donhangkh`(`id_don`, `name_user`, `name_kh`, `sanpham_name`, `price_sp`, `quantify`, `total`, `datetime_in`, `address_in`)  VALUES (NULL, '$user', '$name','', '', '', '$datetime_str','$add')";
+                $sql_insert2 = "INSERT INTO `tbl_donhangkh`(`id_don`, `name_user`, `name_kh`, `sanpham_name`, `price_sp`, `quantify`, `total`, `datetime_in`, `address_in`)  VALUES (NULL, '$user', '$name','', '', '','', '$datetime_str','$add')";
                 mysqli_query($conn, $sql_insert2);                
                 $sql = "SELECT * FROM  tbl_taodon";                 
                 $result=mysqli_query($conn, $sql); 
@@ -40,7 +40,7 @@
     echo '<script>
                 var result = confirm("Đặt hàng thành công");
                 if (result) {
-                        window.location.href = "./dhhk";
+                        window.location.href = "./dhkh";
                 } else {
                         window.location.href = "./shop";
                 }

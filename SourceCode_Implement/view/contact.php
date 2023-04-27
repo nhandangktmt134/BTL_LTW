@@ -1,17 +1,3 @@
-<?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "nongsanstore";
-
-// Tạo kết nối đến cơ sở dữ liệu
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-
-// Kiểm tra kết nối
-if (!$conn) {
-    die("Kết nối không thành công: " . mysqli_connect_error());
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -89,7 +75,7 @@ if (!$conn) {
                     </div>
                     <!-- <div id="form_status"></div> -->
                     <div class="contact-form">
-                        <form id="submit" action="#">
+                        <form id='submit' method="post">
                             <p>
                                 <input type="text" placeholder="Name" name="name" id="name">
                                 <input type="text" placeholder="Email" name="email" id="email">
@@ -100,7 +86,7 @@ if (!$conn) {
                             </p>
                             <p>
                                 <input type="text" placeholder="Address" name="address" id="address">
-                                <input class="form-control" type="datetime-local" placeholder="Select Datetime Free" id="datetime">
+                                <input class="form-control" type="datetime-local" placeholder="Select Datetime Free" id="datetime" name="date">
                             </p>
                             <p><textarea name="message" id="message" cols="30" rows="10" placeholder="How can we help you?"></textarea></p>
                             <!-- <br> -->
@@ -149,36 +135,61 @@ if (!$conn) {
     <!-- end contact form -->
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script>
-        const submit = document.getElementById('submit');
-        submit.addEventListener('submit', (e) => {
-            e.preventDefault();
-            console.log("Clicked");
-            console.log(document.getElementById('email'));
+        const form = document.getElementById("submit");
+
+        form.addEventListener("submit", function(event) {
+                    event.preventDefault();
+
+                    const formData = new FormData(form);
+
+                    fetch("./model/process_sendemail.php", {
+                            method: "POST",
+                            body: formData
+                        })
+                        .then(response => response.text())
+                        .then(data => {
+                            console.log(data); // Log phản hồi từ server
+                            alert("Success!"); // Hiển thị thông báo thành công
+                            form.reset(); // Xóa các giá trị đã nhập vào form
+                        })
+                        .catch(error => {
+                            console.error(error);
+                            alert("Error!"); // Hiển thị thông báo lỗi
+                        });
+                    });
+                    const submit = document.getElementById('submit');
+                    submit.addEventListener('submit', (e) => {
+                        e.preventDefault();
+                        console.log("Clicked");
+                        console.log(document.getElementById('email'));
 
 
-            Email.send({
-                SecureToken: "dc53ad6b-14ef-4b4f-873b-8208b506a78c", //add your token here
-                To: document.getElementById('email').value, // receive
-                From: "bangbang2002zingmepoki@gmail.com", // send
-                Subject: "Nông sản sạch",
-                Body: "We received your message, we will contact you soon!"
-            });
+                        Email.send({
+                            SecureToken: "dc53ad6b-14ef-4b4f-873b-8208b506a78c", //add your token here
+                            To: document.getElementById('email').value, // receive
+                            From: "bangbang2002zingmepoki@gmail.com", // send
+                            Subject: "Nông sản sạch",
+                            Body: "We received your message, we will contact you soon!"
+                        });
 
 
-            Email.send({
-                SecureToken: "dc53ad6b-14ef-4b4f-873b-8208b506a78c", //add your token here
-                To: "bangbang2002zingmepoki@gmail.com", // receive
-                From: "bangbang2002zingmepoki@gmail.com", // send
-                Subject: document.getElementById('subject').value + ' Email Customer: ' + document.getElementById('email').value,
-                Body: 'Address of customer is: ' + document.getElementById('address').value + '<br>' +
-                    'Time free is: ' + document.getElementById('datetime').value + '<br>' +
-                    document.getElementById('message').value
-            }).then(function() {
-                alert('We received your message, we will contact you soon!');
-            });
+                        Email.send({
+                            SecureToken: "dc53ad6b-14ef-4b4f-873b-8208b506a78c", //add your token here
+                            To: "bangbang2002zingmepoki@gmail.com", // receive
+                            From: "bangbang2002zingmepoki@gmail.com", // send
+                            Subject: document.getElementById('subject').value + ' Email Customer: ' + document.getElementById('email').value,
+                            Body: 'Address of customer is: ' + document.getElementById('address').value + '<br>' +
+                                'Time free is: ' + document.getElementById('datetime').value + '<br>' +
+                                document.getElementById('message').value
+                        }).then(function() {
+                            alert('We received your message, we will contact you soon!');
+                        });
 
-        });
+                    });
     </script>
+
+
+
 
     <script>
         function CheckErrorForFrom() {
