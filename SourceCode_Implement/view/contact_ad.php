@@ -24,8 +24,6 @@ require_once 'model/contactModel.php';
         <?php foreach ($result  as $rows): ?>
         <tr>
         <td><a class='btn btn-danger'  href='./controller/Delete.php?obj=contact&id=<?php echo $rows['id']; ?>'>Xóa</a></td>
-        <td>
-          </td>
           <td><?php  echo $stt; $stt= $stt+1;?></td>
           <td><?php echo $rows['name'];?></td>
           <td><?php echo $rows['email'];?></td>

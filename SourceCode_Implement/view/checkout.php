@@ -97,7 +97,7 @@
 								<td class="product-name"><?php echo $rows['name_sp'];?></td>
 								<td class="product-price"><?php  echo $rows['price'];?></td>
 								<td class="product-quantity"><?php  echo  $rows['quantifiy'];?></td>
-								<td class="product-total"> <?php  echo  $rows['total'];$sum = $sum + $rows['total'];?></td>
+								<td class="product-total"> <?php  echo  $rows['total'];$sum =  $rows['total'];?></td>
 								</tr>
 								<?php endforeach; ?> 
 							</tbody>
