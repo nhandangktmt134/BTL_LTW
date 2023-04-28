@@ -1,5 +1,19 @@
 <?php
-    require_once('header.php')
+    require_once('header.php');
+    $conn = mysqli_connect('localhost', 'root', '', 'nongsanstore');
+    if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
+    $sql = "SELECT * FROM tbl_user WHERE username  = '{$_SESSION["username"]}'";
+    $result = mysqli_query($conn,$sql);
+    foreach ($result as $row) {
+        # code...
+        $name_update = $row['name'];
+        $phone = $row['phone'];
+        $addres = $row['address'];
+        $email = $row['email'];
+        $img = $row['img'];
+    } 
 ?>
 <div class="container rounded bg-white mt-5 mb-5">
     <div class="row">
@@ -7,56 +21,44 @@
             <?php require_once('profileSidebar.php'); ?>
         </div>
         <div class="col-md-5 border-right">
+            <br><br><br>
             <div class="p-3 py-5">
-                <form action="/SourceCode_Implement/user/updateprofile" method="POST" enctype="multipart/form-data">
+                <form action="./updateprofile" method="POST"enctype="multipart/form-data">
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <h4 class="text-right">CẬP NHẬT THÔNG TIN</h4>
-                </div>
-                <div id="message">
-                    <?php
-                        if (isset($_SESSION['update_profile'])) {
-                            if ($_SESSION['update_profile'] ==  "Đã cập nhật thành công!") {
-                                echo "<p style='color: green'>".$_SESSION['update_profile']."</p>" ;
-                            } else {
-                                echo "<p style='color: red'>".$_SESSION['update_profile']."</p>" ;
-                            }
-                        }
-                    ?>
                 </div>
                 <div class="row mt-2">
                     <div class="col-md-6">
                         <label class="labels">Tên</label>
-                        <input type="text" class="form-control" value="<?php echo $_SESSION['firstname'] ?>"name="firstname" pattern="^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$" required>
-                    </div>
-                    <div class="col-md-6">
-                        <label class="labels">Họ</label>
-                        <input type="text" class="form-control" value="<?php echo $_SESSION['lastname'] ?>"name="lastname" pattern="^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$" required>
+                        <input type="text" class="form-control" value="<?php echo $name_update;  ?>"name="name_user" pattern="^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$" required>
                     </div>
                 </div>
                 <div class="row mt-3">
                     <div class="col-md-12">
                         <label class="labels">Số điện thoại</label>
-                        <input type="number" class="form-control" value="<?php echo $_SESSION['phone'] ?>" name="phone" pattern="/^\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/" required>
+                        <input type="number" class="form-control" value="<?php echo $phone?>" name="phone" pattern="/^\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/" required>
                     </div>
                     <div class="col-md-12">
                         <label class="labels">Địa chỉ</label>
-                        <input type="text" class="form-control" value="<?php echo $_SESSION['user_address'] ?>" name="user_address">
+                        <input type="text" class="form-control" value="<?php echo $addres ?>" name="user_address">
                     </div>
                     <div class="col-md-12">
                         <label class="labels">Địa chỉ email</label>
-                        <input type="email" class="form-control" value="<?php echo $_SESSION['email'] ?>" name="email">
+                        <input type="email" class="form-control" value="<?php echo $email?>" name="email">
                     </div>
                     <div class="col-md-12">
                         <label for="img">Chọn hình ảnh đại diện mới</label>
-                        <div><input type="file" id="img" name="img" accept="image/png, image/jpeg, image/pjpeg , image/gif" ></div>
-                   </div>
+                        <input class="form-control form-control-lg" id="img" type="file" accept="image/png, image/jpeg, image/pjpeg , image/gif"name="img" />
+                        <label class="form-label" for="form3Example8">Tải ảnh </label>
+                        <div class="small text-muted mt-2">File có kích thước tối đa là 50 MB</div>                   </div>
                 </div>
                 <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="submit" name="update">Lưu thay đổi</button></div>
                 </form>
             </div>
         </div>
         <div class="col-md-4">
-            <form action="/bookstore/user/pwchange" method="POST">
+            <br><br><br>
+            <form action="./pwchange" method="POST">
             <div class="p-3 py-5">
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <h4 class="text-right">Cập nhật mật khẩu</h4>

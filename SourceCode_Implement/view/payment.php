@@ -70,7 +70,7 @@
 								</tr>
 								<tr class="total-data">
 									<td><strong>Total: </strong></td>
-									<td><?php  echo  $sum*95/100;?> VND</td>
+									<td><?php  echo  $sum*105/100;?> VND</td>
 								</tr>
 							</tbody>
 						</table>

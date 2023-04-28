@@ -129,7 +129,7 @@ class user extends Controller {
             if ($firstName == "" || $lastName == "" || $email == "" || $phone == "" || $address =="") {
                 $msg = "Vui lòng điền đầy đủ thông tin!";
                 $_SESSION['update_profile'] = $msg;
-                header('Location: /bookstore/profile');
+                header('Location: /profile');
             } else {
                 if ( $_FILES["img"]["error"] == 0){
                     $img = $this->upload_file_user($username, $_FILES);
@@ -138,7 +138,7 @@ class user extends Controller {
                 if ($success == true) {
                     $msg = "Đã cập nhật thành công!";
                     $_SESSION['update_profile'] = $msg;
-                    header('Location: /bookstore/profile');
+                    header('Location: /profile');
                     die;
                 } else {
                     $msg = "Không cập nhật thành công";

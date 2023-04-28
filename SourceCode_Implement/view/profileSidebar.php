@@ -1,9 +1,16 @@
 <!-- <?php
     $name = "";
-    if (isset($_SESSION['img'])) $img = $_SESSION['img'];
-    if (isset($_SESSION['email'])) $email = $_SESSION['email'];
-    if (isset($_SESSION['firstname'])) $name .= $_SESSION['firstname']." ";
-    if (isset($_SESSION['lastname'])) $name .= $_SESSION['lastname'];
+    $sql = "SELECT * FROM tbl_user WHERE username  = '{$_SESSION["username"]}'";
+    $result = mysqli_query($conn,$sql);
+    // var_dump($result);
+    foreach ($result as $row) {
+        # code...
+        $name_update = $row['name'];
+        $phone = $row['phone'];
+        $addres = $row['address'];
+        $email = $row['email'];
+        $img = $row['img'];
+    } 
     echo <<< _END
         <div class="d-flex flex-column align-items-center text-center p-3 py-5">
             <img class="rounded-circle mt-5" width="150px" src="$img">
@@ -15,33 +22,32 @@
 ?> -->
 
 <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-    <img class="rounded-circle mt-5" width="150px" src="<?php echo $_SESSION['img']?? "/bookstore/asset/img/user/user.png" ?>">
-    <span class="font-weight-bold"><?php echo $_SESSION['firstname']." ".$_SESSION['lastname']?></span>
-    <span class="text-black-50"><?php echo $_SESSION['email'] ?></span>
+    <img class="rounded-circle mt-5" width="150px" src="<?php echo $img?>">
+    <span class="font-weight-bold"><?php echo $name?></span>
+    <span class="text-black-50"><?php echo $email ?></span>
 
     <?php
-        if (isset($_SESSION['user_role']) && ($_SESSION['user_role'] == 1)) {
+        if (isset($_SESSION['role']) && ($_SESSION['role'] == 1)) {
             echo <<< _END
-                <span class="font-weight-bold" style="color: green;">ADMIN</span>
+                <span class="font-weight-bold" style="color: red;">ADMIN</span>
             _END;
+        }else {
+            echo <<< _END
+            <span class="font-weight-bold" style="color: green;">USER</span>
+        _END;
         }
     ?>
-
-    <form action="/bookstore/profile" method="POST">
-        <button type="submit" class="btn btn-outline-primary" style="margin-top:10px">Chỉnh sửa thông tin</button>
-    </form>
-
     <?php
-        if (isset($_SESSION['user_role']) && ($_SESSION['user_role'] == 1)) {
+        if (isset($_SESSION['role']) && ($_SESSION['role'] == 1)) {
             echo <<< _END
-            <form action="/bookstore/profile/usermanager" method="POST">
+            <form action="./admin?act=user" method="POST">
                 <button type="submit" class="btn btn-outline-success" style="margin-top: 10px;">Quản lí người dùng</button>
             </form>
-            <form action="/bookstore/profile/bookmanager" method="POST">
-                <button type="submit" class="btn btn-outline-success" style="margin-top: 10px;">Quản lí sách</button>
+            <form action="./admin?act=product" method="POST">
+                <button type="submit" class="btn btn-outline-success" style="margin-top: 10px;">Quản lí sản phẩm V</button>
             </form>
-            <form action="/bookstore/profile/ordermanager" method="POST">
-                <button type="submit" class="btn btn-outline-success" style="margin-top: 10px;">Quản lí đơn hàng</button>
+            <form action="./admin?act=donhang" method="POST">
+                <button type="submit" class="btn btn-outline-success" style="margin-top: 10px;">Quản lí đơn hàng V</button>
             </form>
             _END;
         }

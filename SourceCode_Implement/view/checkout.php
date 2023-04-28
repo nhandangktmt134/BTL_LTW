@@ -7,7 +7,7 @@
 //    // Lấy dữ liệu từ bảng tbl_taodon
 	$sql = "SELECT * FROM tbl_taodon";
 	$result = mysqli_query($conn,$sql);
-	$sum = $_POST['pay_sum'];
+	$sum = 0;
 	$stt=1;
 
 //    $rows = mysqli_fetch_assoc($result);
@@ -97,7 +97,7 @@
 								<td class="product-name"><?php echo $rows['name_sp'];?></td>
 								<td class="product-price"><?php  echo $rows['price'];?></td>
 								<td class="product-quantity"><?php  echo  $rows['quantifiy'];?></td>
-								<td class="product-total"> <?php  echo  $rows['total'];$sum =  $rows['total'];?></td>
+								<td class="product-total"> <?php  echo  $rows['total'];$sum = $sum + $rows['total'];?></td>
 								</tr>
 								<?php endforeach; ?> 
 							</tbody>
@@ -156,7 +156,7 @@
 								</tr>
 								<tr class="total-data">
 									<td><strong>Total: </strong></td>
-									<td><?php  echo  $sum*95/100;?> VND</td>
+									<td><?php  echo  $sum*105/100;?> VND</td>
 								</tr>
 							</tbody>
 						</table>

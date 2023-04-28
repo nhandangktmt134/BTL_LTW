@@ -124,6 +124,8 @@ mysqli_close($conn);
 									if ($_SESSION['role'] == 1) {
 										echo "<li>
 													<a href='./admin' style='text-decoration: none'>Trang quản lý</a>
+													<li><a href='./infoprofile' style='text-decoration: none'>Xem thông tin cá nhân</a></li>
+													<li><a href='./profile' style='text-decoration: none'>Chỉnh sửa thông tin cá nhân</a></li>
 												</li>";
 									}
 									if ($_SESSION['role'] == 0) {
