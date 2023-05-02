@@ -244,7 +244,7 @@
 				<div class="col-lg-8 offset-lg-2 text-center">
 					<div class="section-title">	
 						<h3><span class="orange-text">Our</span> News</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, fuga quas itaque eveniet beatae optio.</p>
+						<p>MỘT SỐ THÔNG TIN MỚI NHẤT</p>
 					</div>
 				</div>
 			</div>
@@ -252,43 +252,43 @@
 			<div class="row">
 				<div class="col-lg-4 col-md-6">
 					<div class="single-latest-news">
-						<a href="single-news.html"><div class="latest-news-bg news-bg-1" style="background-image: url('./asset/img/products/product-img-1.jpg');"></div></a>
+						<a href="./post"><div class="latest-news-bg news-bg-1" style="background-image: url('./asset/img/posts/post1_new.jpg');"></div></a>
 						<div class="news-text-box">
-							<h3><a href="single-news.html">You will vainly look for fruit on it in autumn.</a></h3>
+							<h3><a href="./post">Thủy canh tĩnh và động là gì? Giới thiệu kỹ thuật trồng thủy canh</a></h3>
 							<p class="blog-meta">
 								<span class="author"><i class="fas fa-user"></i> Admin</span>
-								<span class="date"><i class="fas fa-calendar"></i> 27 December, 2019</span>
+								<span class="date"><i class="fas fa-calendar"></i> 27 April, 2023</span>
 							</p>
-							<p class="excerpt">Vivamus lacus enim, pulvinar vel nulla sed, scelerisque rhoncus nisi. Praesent vitae mattis nunc, egestas viverra eros.</p>
-							<a href="single-news.html" class="read-more-btn">read more <i class="fas fa-angle-right"></i></a>
+							<p class="excerpt">Thủy canh tĩnh và động được xem là 2 phương pháp thủy canh đang được sử dụng nhiều nhất hiện nay. Mỗi một phương pháp sẽ mang đến những ưu nhược điểm khác nhau và có kỹ thuật trồng khác nhau. Chính vì thế hãy cùng chúng tôi tìm hiểu ngay về 2 phương pháp...</p>
+							<a href="./post" class="read-more-btn">read more <i class="fas fa-angle-right"></i></a>
 						</div>
 					</div>
 				</div>
 				<div class="col-lg-4 col-md-6">
 					<div class="single-latest-news">
-						<a href="single-news.html"><div class="latest-news-bg news-bg-2" style="background-image: url('./asset/img/products/product-img-1.jpg');"></div></a>
+						<a href="./post"><div class="latest-news-bg news-bg-2" style="background-image: url('./asset/img/posts/post3_new.jpg');"></div></a>
 						<div class="news-text-box">
-							<h3><a href="single-news.html">A man's worth has its season, like tomato.</a></h3>
+							<h3><a href="./post">Cách nhân giống Lan Trầm Tím và kỹ thuật ươm ki “hiệu quả”</a></h3>
 							<p class="blog-meta">
 								<span class="author"><i class="fas fa-user"></i> Admin</span>
-								<span class="date"><i class="fas fa-calendar"></i> 27 December, 2019</span>
+								<span class="date"><i class="fas fa-calendar"></i> 28 December, 2022</span>
 							</p>
-							<p class="excerpt">Vivamus lacus enim, pulvinar vel nulla sed, scelerisque rhoncus nisi. Praesent vitae mattis nunc, egestas viverra eros.</p>
-							<a href="single-news.html" class="read-more-btn">read more <i class="fas fa-angle-right"></i></a>
+							<p class="excerpt">Lan Trầm Tím là một loại hoa được nhiều người yêu thích bởi màu tím hay màu trắng kết hợp với mùi hương dễ chịu tạo nên một không gian mộng mơ làm mê hoặc lòng người. Và cách nhân giống lan trầm cũng không hề khó.</p>
+							<a href="./post" class="read-more-btn">read more <i class="fas fa-angle-right"></i></a>
 						</div>
 					</div>
 				</div>
 				<div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0">
 					<div class="single-latest-news">
-						<a href="single-news.html"><div class="latest-news-bg news-bg-3"  style="background-image: url('./asset/img/products/product-img-1.jpg');"></div></a>
+						<a href="./post"><div class="latest-news-bg news-bg-3"  style="background-image: url('./asset/img/posts/post2_new.jpg');"></div></a>
 						<div class="news-text-box">
-							<h3><a href="single-news.html">Good thoughts bear good fresh juicy fruit.</a></h3>
+							<h3><a href="./post">Mẹo chọn hạt giống Việt chất lượng cao, giá rẻ</a></h3>
 							<p class="blog-meta">
 								<span class="author"><i class="fas fa-user"></i> Admin</span>
-								<span class="date"><i class="fas fa-calendar"></i> 27 December, 2019</span>
+								<span class="date"><i class="fas fa-calendar"></i> 28 April 2023</span>
 							</p>
-							<p class="excerpt">Vivamus lacus enim, pulvinar vel nulla sed, scelerisque rhoncus nisi. Praesent vitae mattis nunc, egestas viverra eros.</p>
-							<a href="single-news.html" class="read-more-btn">read more <i class="fas fa-angle-right"></i></a>
+							<p class="excerpt">Hạt giống là yếu tố đầu tiên vô cùng quan trọng, quyết định sự sinh trưởng của cây trồng. Để chọn lựa được sản phẩm hạt giống chất lượng cao mà giá cả phải chăng sẽ giúp bạn dễ dàng có một vườn rau xanh ngay tại nhà. Hạt giống Việt tại My Garden là...</p>
+							<a href="./post" class="read-more-btn">read more <i class="fas fa-angle-right"></i></a>
 						</div>
 					</div>
 				</div>

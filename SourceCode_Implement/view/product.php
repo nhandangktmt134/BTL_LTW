@@ -10,10 +10,10 @@
 ?>
 <style>
     .Hot>p{
-        font-size: 16px;
+        font-size: 18px;
         font-weight: 300px;
-        text-align: right;
-        color: hotpink;
+        text-align: center;
+        color: white;
         background-color:blue;
     }
 </style>
